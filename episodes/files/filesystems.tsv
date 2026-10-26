@@ -1,7 +1,0 @@
-place	mount	backup	lifetime	quota
-home	/home/LOGIN	nightly	15 weeks after the project ends	200 GiB
-scratch-shared	/scratch-shared/	none	14 days	8 TiB across scratch areas
-scratch-local	/scratch-local/	none	6 days	counted in the scratch quota
-scratch-node	/scratch-node/	none	deleted when the job ends	the node disk
-project	/projects/NAME	none	the project	by request
-archive	/archive/	nightly	the project	by request

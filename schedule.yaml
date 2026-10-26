@@ -1,0 +1,28 @@
+title: Supercomputing with EESSI
+domain: https://supersurf.rgoswami.me
+
+sessions:
+  - title: Part I
+    hours: 4
+    focus: Fundamentals and the EESSI stack
+    slugs: eessi, fundamentals
+  - title: Part II
+    hours: 4
+    focus: File systems, moving data, and many tasks
+    slugs: filesystems, data-movement, many-tasks
+  - title: Part III
+    hours: 4
+    focus: Hybrid jobs and performance
+    slugs: hybrid-jobs, performance
+
+cut_first:
+  data-movement: several-streams.md
+  many-tasks: other-tools.md
+  performance: energy.md
+
+redirects:
+  what-is-a-supercomputer: /fundamentals/
+  software-with-eessi: /eessi/
+  slurm-jobs: /fundamentals/
+  performance-first-steps: /performance/
+  many-tasks: /many-tasks/
