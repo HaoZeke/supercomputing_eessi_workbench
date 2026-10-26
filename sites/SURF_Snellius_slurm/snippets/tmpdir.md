@@ -1,0 +1,1 @@
+On a compute node `$TMPDIR` is `/scratch-local/$USER.$SLURM_JOB_ID`, and `realpath` shows a GPFS path under `/gpfs/scratch1/nodespecific/`. The directory is specific to the job, not only to the node. Two jobs on `tcn386` get two directories.

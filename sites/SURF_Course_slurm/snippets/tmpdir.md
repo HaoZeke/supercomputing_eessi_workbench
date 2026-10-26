@@ -1,0 +1,1 @@
+`$TMPDIR` in a job is `/localscratch/$USER.$SLURM_JOB_ID.0` on the node's own disk. The cluster deletes it when the job ends. There is one login node, so compare the login node's `/tmp` with a job's `$TMPDIR`.

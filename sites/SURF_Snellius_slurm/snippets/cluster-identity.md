@@ -1,0 +1,1 @@
+Snellius is the Dutch national supercomputer, operated by SURF. Login nodes are named `int*`. A compute node name looks like `tcn386`. The public description is at <https://www.surf.nl/en/services/compute/snellius-the-national-supercomputer>.

@@ -1,0 +1,43 @@
+# Course cluster. The welcome note has the address, written MANAGER.
+# The cluster product name and the CPU partition are left open on purpose.
+snippets: SURF_Course_slurm
+local:
+  prompt: "[you@laptop:~]$"
+  shebang: "#!/bin/bash"
+remote:
+  name: "course cluster"
+  login: "MANAGER"
+  portal: ""
+  host: "LOGIN"
+  node: "NODE"
+  user: "YOUR_LOGIN"
+  prompt: "[YOUR_LOGIN@LOGIN ~]$"
+  shebang: "#!/bin/bash"
+  stack_init: "module load 2025"
+  fs:
+    home: "/home"
+    scratch: "/scratch"
+    project: "/project"
+    archive: ""
+  modules:
+    python: "Python/3.13.5-GCCcore-14.3.0"
+    stack: "2025"
+sched:
+  name: "Slurm"
+  submit:
+    name: "sbatch"
+    options: ""
+  queue:
+    testing: "PARTITION"
+  status: "squeue"
+  flag:
+    user: "-u $USER"
+    name: "--job-name"
+    time: "--time"
+    queue: "--partition"
+    nodes: "--nodes"
+    tasks: "--ntasks"
+    threads: "--cpus-per-task"
+  del: "scancel"
+  comment: "#SBATCH"
+  hist: "sacct"
