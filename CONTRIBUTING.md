@@ -102,8 +102,8 @@ community listed at <https://carpentries.org/connect/> including via social
 media, slack, newsletters, and email lists. You can also [reach us by
 email][contact].
 
-[repo]: https://github.com/HaoZeke/introduction-to-supercomputing
-[repo-issues]: https://github.com/HaoZeke/introduction-to-supercomputing/issues
+[repo]: https://github.com/HaoZeke/supercomputing_eessi_workbench
+[repo-issues]: https://github.com/HaoZeke/supercomputing_eessi_workbench/issues
 [contact]: mailto:rgoswami@ieee.org
 [cp-site]: https://carpentries.org/
 [dc-issues]: https://github.com/datacarpentry

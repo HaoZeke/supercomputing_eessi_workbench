@@ -2,7 +2,7 @@
 title: "Instructor notes"
 ---
 
-Teach this in one day next to the slide decks in <https://github.com/HaoZeke/introduction-to-supercomputing>. The upstream decks are in <https://github.com/sara-nl/introduction-to-supercomputing>. Each episode below names the branch to have open. The episode slide deck in `slides/` is the backup if a course deck will not build.
+Teach this in one day next to the slide decks in <https://github.com/sara-nl/introduction-to-supercomputing>. Each episode below names the deck to have open. The episode slide deck in `slides/` is the backup if a course deck will not build.
 
 ## Timing
 
@@ -19,11 +19,11 @@ Teaching is 180 minutes and exercises are 120 minutes. That is a full day with b
 
 ## Deck map
 
-- Episodes 1 and 2 follow `fix/slides-fundamentals-source`. Stop the software episode at `module load`. Do not open EasyBuild. Point at <https://hpceb.rgoswami.me/> and move on.
+- Episodes 1 and 2 follow `course-module-fundamentals-of-hpc/slides/fundamentals-of-hpc.pdf`. Stop the software episode at `module load`. Do not open EasyBuild. Point at <https://hpceb.rgoswami.me/> and move on.
 - Episode 3 uses the scheduler section of that same fundamentals deck. The batch files in `episodes/files/` are the ones to project.
-- Episode 4 follows `fix/slides-fs-source`. Draw `/home`, `/project`, and `/scratch` for the course cluster beside the Snellius table.
-- Episode 5 follows `fix/slides-qcg-source` for the pilot, then `feat/workflow-alternatives` for HyperQueue, Snakemake, and FireWorks. Ten minutes on the alternatives is enough.
-- Episode 6 follows `fix/slides-performance-source`. Stop at the roofline picture. Do not start a profiler.
+- Episode 4 follows `course-module-snellius-fs/slides/snellius-fs.pdf`. Draw `/home`, `/project`, and `/scratch` for the course cluster beside the Snellius table.
+- Episode 5 follows `course-module-qcg-pilotjob/slides/qcg-pilotjob-slides.pdf` for the pilot, then `course-module-qcg-pilotjob/slides/workflow-alternatives.pdf` for HyperQueue, Snakemake, and FireWorks. Ten minutes on the alternatives is enough.
+- Episode 6 follows `course-module-performance-analysis/performance-analysis.pdf`. Stop at the roofline picture. Do not start a profiler.
 
 ## Before the room arrives
 

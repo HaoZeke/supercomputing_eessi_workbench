@@ -4,7 +4,7 @@
 [eessi-docs]: https://www.eessi.io/docs/
 [easybuild-book]: https://hpceb.rgoswami.me/
 [easybuild-repo]: https://github.com/HaoZeke/what-easybuild-is-doing
-[course-fork]: https://github.com/HaoZeke/introduction-to-supercomputing
+[course-fork]: https://github.com/sara-nl/introduction-to-supercomputing
 [course-upstream]: https://github.com/sara-nl/introduction-to-supercomputing
 [magic-castle]: https://github.com/ComputeCanada/magic_castle
 [snellius]: https://www.surf.nl/en/services/compute/snellius-the-national-supercomputer
