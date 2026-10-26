@@ -1,0 +1,7 @@
+```bash
+`r config$remote$prompt` module load 2025
+`r config$remote$prompt` module load `r config$remote$modules$python`
+`r config$remote$prompt` dirname "$(which python3)"
+```
+
+`module load 2025` loads EESSI 2025.06. `dirname` prints a directory under `/cvmfs/software.eessi.io` for the CPU target on that node. The directory contains `python3` and `pip3`.

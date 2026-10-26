@@ -4,7 +4,7 @@ This directory is a copy of [hpc-intro](https://github.com/carpentries-incubator
 
 The lesson is CC-BY 4.0. Copyright (c) The Carpentries. The maintainer is Christina Koch. The other authors are listed in `AUTHORS`. The upstream license is `LICENSE.md`.
 
-This copy changes the lesson metadata: title, URL, contact, and the carpentry name `supersurf`. The upstream prose is in place. Later commits add SURF site overlays and two episodes from the SURF fundamentals deck. See `UPSTREAM.md`.
+This copy changes the lesson metadata: title, URL, contact, and the carpentry name `supersurf`. SURF site overlays and two episodes from the SURF fundamentals deck sit alongside the upstream prose. See `UPSTREAM.md`.
 
 # Using High-Performance Computing Systems
 

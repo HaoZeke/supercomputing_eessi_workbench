@@ -232,6 +232,11 @@ python3 --version
 `r config$remote$prompt` `r config$sched$submit$name` `r config$sched$submit$options` python-module.sh
 ```
 
+The partition line comes from the site tab. On the course cluster the name is still a placeholder.
+
+::: sites partition-request
+:::
+
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::

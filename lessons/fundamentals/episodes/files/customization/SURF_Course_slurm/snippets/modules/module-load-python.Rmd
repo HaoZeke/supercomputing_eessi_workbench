@@ -1,0 +1,11 @@
+```bash
+`r config$remote$prompt` module load 2025
+`r config$remote$prompt` module load `r config$remote$modules$python`
+`r config$remote$prompt` python3 --version
+```
+
+```output
+Python 3.13.5
+```
+
+`module load 2025` loads EESSI 2025.06. The same `python3 --version` line is `Python 3.13.5`. `which python3` prints a path under `/cvmfs/software.eessi.io`. The exact directory depends on the CPU target, so this sample does not invent it.

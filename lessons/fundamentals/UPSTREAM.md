@@ -19,4 +19,6 @@ What this copy changes:
 - `episodes/files/customization/HPCC_MagicCastle_slurm/_config_options.yml`: `url` and `baseurl`, so the upstream discuss page can build.
 - README attribution at the top.
 
-The episodes, the Magic Castle snippets, `LICENSE.md`, and `AUTHORS` are the upstream files. SURF overlays live in later commits under `episodes/files/customization/SURF_Snellius_slurm/` and `SURF_Course_slurm/`.
+`LICENSE.md` and `AUTHORS` are the upstream files. The Magic Castle snippets are the upstream files. SURF replacements for the snippets that name a Magic Castle partition or a pilot EESSI path are under `episodes/files/customization/SURF_Snellius_slurm/` and `SURF_Course_slurm/`.
+
+Two episodes are not from hpc-intro: `surf-accounting.md` and `python-and-openmp.md`. Their scripts and numbers come from `fix/slides-fundamentals-source` at `2ebb95294418d5831143e393e93b294af39464b1`. See `episodes/files/hands-on/PROVENANCE.md`.

@@ -1,0 +1,11 @@
+```bash
+`r config$remote$prompt` module load 2025
+`r config$remote$prompt` module load `r config$remote$modules$python`
+`r config$remote$prompt` python3 --version
+```
+
+```output
+Python 3.13.5
+```
+
+`module load 2025` selects the 2025 site stack. `which python3` then prints a path in that stack. Read the path on the login node. This sample does not invent it.

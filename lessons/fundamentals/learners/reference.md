@@ -3,6 +3,32 @@ permalink: /reference/
 title: Knowledge Base
 ---
 
+## Glossary
+
+SBU
+: System billing unit. On Snellius, the charge for a job. A `rome` node is 128 SBU per node-hour.
+
+partition
+: The Slurm name for a set of nodes. On Snellius, `rome` is 521 nodes of 128 cores and 256 GB.
+
+login node
+: The machine you reach with `ssh`. It is shared. Heavy work belongs in a job, not here.
+
+worker node
+: A compute node. The scheduler is what runs your program there.
+
+scheduler
+: The program that queues jobs and starts them on worker nodes. This lesson uses Slurm.
+
+module
+: A name you load to put one build, and the libraries it needs, on your `PATH`.
+
+OpenMP
+: Shared-memory threads inside one program. `OMP_NUM_THREADS` sets how many threads the next run starts.
+
+job array
+: One submission that starts many tasks, each with its own index.
+
 ### Quick Reference or "Cheat Sheets" for Queuing System Commands
 
 Search online for the one that fits you best, but here's some to start:

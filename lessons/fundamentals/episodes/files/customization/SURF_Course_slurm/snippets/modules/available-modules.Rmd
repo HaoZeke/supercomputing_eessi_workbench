@@ -1,0 +1,10 @@
+```bash
+`r config$remote$prompt` module load 2025
+`r config$remote$prompt` module avail Python
+```
+
+```output
+Python/3.13.5-GCCcore-14.3.0
+```
+
+`module load 2025` loads EESSI 2025.06, so `module avail` shows that stack. The Python line is the same build the Snellius tab names. `module spider` searches names that `module avail` hides until another module is loaded.

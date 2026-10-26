@@ -76,14 +76,18 @@ episodes:
   - 21-array.Rmd
   - 18-resources.Rmd
   - 19-responsibility.Rmd
+  - surf-accounting.md
+  - python-and-openmp.md
 
 # Information for Learners
 learners:
   - setup.md
+  - reference.md
 
 # Information for Instructors
 instructors:
   - instructor-notes.Rmd
+  - surf-notes.md
 
 # Learner Profiles
 profiles:
