@@ -1,16 +1,1 @@
-::: callout
-## TODO(Rohit)
-
-The course cluster name and partition for the next run are still open.
-The workbench uses a Magic Castle workspace and `--partition=thin_course`.
-The course README says SURF Research Cloud workspaces and the partition `rome`.
-The fundamentals deck says those two partition names point at the same nodes.
-This tab does not choose.
-:::
-
-Run `sinfo` on the login node. The sample below keeps `PARTITION` as a placeholder. It is not a live `STATE` column, and it does not pick a name.
-
-```output
-PARTITION   NODES  NOTE
-PARTITION     ...  placeholder, not a chosen partition
-```
+The course cluster is a SURF Research Cloud workspace. The CPU partition is `rome`. Run `sinfo` on the login node for the live rows. This tab does not copy the Snellius hardware table.

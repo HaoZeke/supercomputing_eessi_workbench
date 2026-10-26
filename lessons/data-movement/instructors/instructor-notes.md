@@ -29,7 +29,7 @@ The ext4 note on the deck (26 October 2026) says the order matches the predictio
 
 `stage.slurm` is a ten-minute job. Submit it from scratch. The copy back is the second `rsync`, and it has to run inside that script.
 
-The published scripts name the `rome` partition, and `stage.slurm` also sets `--constraint=scratch-node`. Leave those lines as published. The site tabs are what you show for the machine in the welcome note. Do not choose `thin_course` or `rome` for that machine in front of the room. The partition tab is still marked TODO(Rohit).
+The published scripts name the `rome` partition, and `stage.slurm` also sets `--constraint=scratch-node`. Leave those lines as published. The site tabs are what you show for the machine in the welcome note. The course cluster is a SURF Research Cloud workspace, and the course tab requests `--partition=rome`.
 
 EESSI 2023.06 and 2025.06 do not provide mpiFileUtils. Do not tell the room that the course cluster has it, and do not tell them that it is missing there. That tab is still marked TODO(Rohit).
 

@@ -308,7 +308,7 @@ def render(out: Path) -> None:
         data["title"],
         f"""
 <p>Seven lessons, one site. Each lesson is a Carpentries Workbench lesson at <code>https://supersurf.rgoswami.me/&lt;slug&gt;/</code>. The workshop is three sessions of four hours. A lesson keeps every episode. The schedule below is what a session teaches, and the rows marked "cut first" are the ones to drop when the clock runs out.</p>
-<p>Commands that differ by machine are in tabs: Snellius, the course cluster, and a generic Magic Castle cluster with EESSI. The course-cluster tab does not pick a cluster name or a partition. That question is still open. See the <a href="/setup.html">setup page</a>.</p>
+<p>Commands that differ by machine are in tabs: Snellius, the course cluster, and a generic Magic Castle cluster with EESSI. The course cluster is a SURF Research Cloud workspace, and its tab requests <code>--partition=rome</code>. See the <a href="/setup.html">setup page</a>.</p>
 <h2>Workshop schedule</h2>
 <table>
 <thead><tr><th>Session</th><th>Hours</th><th>Focus</th><th>Lessons</th></tr></thead>
@@ -327,7 +327,6 @@ def render(out: Path) -> None:
 <p>Lesson text is CC-BY 4.0, except the hybrid MPI and OpenMP lesson. The license for that lesson is still open. It was adapted from Introducción a la Supercomputación by José Luis Bosque, Borja Pérez, Ramón Beivide, and Carmen Martínez of the Universidad de Cantabria, by the EuroCC NL team at SURF. The TODO on that lesson stays until the license is confirmed. Do not treat the CC-BY line in its config as permission.</p>
 <h2>Still open</h2>
 <ul>
-<li>TODO(Rohit): course cluster name and partition. The workbench uses a Magic Castle workspace and <code>--partition=thin_course</code>. The course README says SURF Research Cloud workspaces and the partition <code>rome</code>. The fundamentals deck says those two partition names point at the same nodes.</li>
 <li>TODO(Rohit): whether mpiFileUtils is available on the course cluster. EESSI 2023.06 and 2025.06 do not provide it.</li>
 <li>TODO(Rohit): the license for the Universidad de Cantabria hybrid-jobs material.</li>
 </ul>

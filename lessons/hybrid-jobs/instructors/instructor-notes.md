@@ -17,7 +17,7 @@ The TODO(Rohit) callout at the top of the lesson is still open. Keep the names: 
 
 ## Cluster tabs
 
-The course tab for the partition still has TODO(Rohit). Do not pick a course cluster name, and do not pick `thin_course` or `rome` for that tab. Snellius keeps the `#SBATCH` lines in the scripts. The course tab of the two-core snippet has the override table. Command-line `sbatch` options override those lines. Learners should not edit the scripts to shrink a job.
+The course cluster is a SURF Research Cloud workspace. The course tab requests `--partition=rome`. Snellius keeps the `#SBATCH` lines in the scripts. The course tab of the two-core snippet has the override table. Command-line `sbatch` options override those lines. Learners should not edit the scripts to shrink a job.
 
 The sample output times in the episodes are one recorded run from the module. Learners record their own times. AXPY is limited by memory bandwidth, so those times flatten early. Teach that shape. The seconds come from the room's jobs.
 

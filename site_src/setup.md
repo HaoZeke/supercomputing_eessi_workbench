@@ -16,9 +16,7 @@ A browser session through Open OnDemand (<https://ondemand.snellius.surf.nl/>) i
 
 ## The course cluster
 
-TODO(Rohit): the course cluster name and partition for the next run are still open. The workbench uses a Magic Castle workspace and `--partition=thin_course`. The course README says SURF Research Cloud workspaces and the partition `rome`. The fundamentals deck says those two partition names point at the same nodes. This page does not choose.
-
-Use the address in the welcome note. There is one login node. Your trainer sends a setup link. That link sets your password.
+The course cluster is a SURF Research Cloud workspace. CPU jobs request `--partition=rome`. The login address is the one in the welcome note. There is one login node. Your trainer sends a setup link. That link sets your password. There is no CUA account.
 
 ```bash
 ssh YOUR_LOGIN@MANAGER

@@ -34,7 +34,7 @@ Branch: `fix/slides-fundamentals-source`
 
 Commit: `2ebb95294418d5831143e393e93b294af39464b1`
 
-The course-cluster note is the slide "This course runs on a course cluster built like Snellius". The course tab still has TODO(Rohit). Do not pick `thin_course` or `rome` for that tab. The published scripts keep `--partition=rome`.
+The course-cluster note is the slide "This course runs on a course cluster built like Snellius". The course cluster is a SURF Research Cloud workspace. The course tab requests `--partition=rome`. The published scripts keep `--partition=rome`.
 
 ## Upstream
 

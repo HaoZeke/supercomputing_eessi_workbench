@@ -31,4 +31,4 @@ Sam wants a number for whether more cores helped. Give Sam speedup `T(1) / T(N)`
 
 ## Tabs
 
-The course partition tab still has TODO(Rohit). Do not pick `thin_course` or `rome` for the course cluster. Counters on the course cluster are `perf` and PAPI, not uProf. Billing units, if anyone asks, are the accounting tab. Do not put a second copy of that formula on the board.
+The course cluster is a SURF Research Cloud workspace, and the course tab requests `--partition=rome`. Counters on the course cluster are `perf` and PAPI, not uProf. Billing units, if anyone asks, are the accounting tab. Do not put a second copy of that formula on the board.

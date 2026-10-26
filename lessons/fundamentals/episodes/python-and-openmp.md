@@ -20,41 +20,8 @@ exercises: 25
 
 The files are in `episodes/files/hands-on/`. They are the batch examples from the fundamentals deck. Run them from that directory. Both scripts set `#SBATCH --partition=rome`. Leave that line. The site tab says what to do on the machine in your welcome note.
 
-:::::: group-tab
-
-### Snellius
-
-```bash
-#SBATCH --partition=rome
-```
-
-`rome` is the AMD Rome CPU partition: 521 nodes, 128 cores, 256 GB. The smallest allocation is 1/8 of a node, so a CPU job asks for at least 16 cores.
-
-### Course cluster
-
-::: callout
-## TODO(Rohit)
-
-The course cluster name and partition for the next run are still open.
-The workbench uses a Magic Castle workspace and `--partition=thin_course`.
-The course README says SURF Research Cloud workspaces and the partition `rome`.
-The fundamentals deck says those two partition names point at the same nodes.
-This tab does not choose.
+::: sites partition-request
 :::
-
-```bash
-#SBATCH --partition=PARTITION
-```
-
-`PARTITION` is a placeholder. Shrink `--ntasks` and `--cpus-per-task` on the `sbatch` line for the small nodes. The scripts stay as published.
-
-### Magic Castle
-
-```bash
-#SBATCH --partition=cpubase_bycore_b1
-```
-
-::::::
 
 ## A Python sum
 
@@ -129,30 +96,8 @@ sbatch pi.sh
 
 The published scripts stay as they are, including `--cpus-per-task=32` and `--partition=rome`. On a small node you pass the smaller request on the `sbatch` command. That overrides the line in the file.
 
-:::::: group-tab
-
-### Snellius
-
-Keep the published resource lines. A `rome` node has 128 cores. Do not shrink the script for Snellius.
-
-### Course cluster
-
-On a two-core node, pass the smaller request on the command line. Do not edit the script.
-
-```bash
-sbatch --cpus-per-task=2 pi.sh
-sbatch --array=0-99%10 array_job.sh
-QCG_MAX_INPUTS=100 sbatch --ntasks=2 qcg_job.sh
-iend=8 wdir=TMPDIR sbatch run.sh
-```
-
-Check the core count with `sinfo` first.
-
-### Magic Castle
-
-Request the cores the exercise names. This cluster is not limited to two cores per node.
-
-::::::
+::: sites scale-two-core
+:::
 
 On the course cluster the pi override is:
 

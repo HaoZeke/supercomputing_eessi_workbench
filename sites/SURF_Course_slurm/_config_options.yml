@@ -1,12 +1,13 @@
-# Course cluster. The welcome note has the address, written MANAGER.
-# The cluster product name and the CPU partition are left open on purpose.
+# Course cluster: a SURF Research Cloud workspace.
+# The welcome note has the login address, written MANAGER.
+# CPU jobs use the rome partition.
 snippets: SURF_Course_slurm
 local:
   prompt: "[you@laptop:~]$"
   user: "you"
   shebang: "#!/bin/bash"
 remote:
-  name: "course cluster"
+  name: "SURF Research Cloud workspace"
   login: "MANAGER"
   portal: ""
   host: "LOGIN"
@@ -34,14 +35,14 @@ sched:
     name: "sbatch"
     options: ""
   queue:
-    testing: "PARTITION"
+    testing: "rome"
   status: "squeue"
   flag:
     user: "-u $USER"
     name: "--job-name"
     time: "--time"
     queue: "--partition"
-    partition: "--partition=PARTITION"
+    partition: "--partition=rome"
     nodes: "--nodes"
     tasks: "--ntasks"
     threads: "--cpus-per-task"

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Every site div has a Magic Castle snippet, and the open questions stay marked."""
+"""Every site div has a Magic Castle snippet, and the course cluster is named."""
 
 from __future__ import annotations
 
@@ -10,22 +10,47 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import expand_sites as ex
 
 ROOT = Path(__file__).resolve().parent.parent
-REQUIRED_TODOS = {
-    ROOT / "sites/SURF_Course_slurm/snippets/cluster-identity.md": (
-        "TODO(Rohit)",
-        "thin_course",
+COURSE = ROOT / "sites/SURF_Course_slurm"
+COURSE_CUSTOM = (
+    ROOT
+    / "lessons/fundamentals/episodes/files/customization/SURF_Course_slurm"
+)
+REQUIRED = {
+    COURSE / "snippets/cluster-identity.md": (
+        "SURF Research Cloud",
+        "welcome note",
         "rome",
     ),
-    ROOT / "sites/SURF_Course_slurm/snippets/partition-request.md": (
-        "TODO(Rohit)",
-        "thin_course",
-        "PARTITION",
+    COURSE / "snippets/partition-request.md": (
+        "SURF Research Cloud",
+        "--partition=rome",
     ),
-    ROOT / "sites/SURF_Course_slurm/snippets/mpifileutils.md": (
+    COURSE / "snippets/ssh-login.md": (
+        "SURF Research Cloud",
+        "welcome note",
+    ),
+    COURSE / "snippets/mpifileutils.md": (
         "TODO(Rohit)",
         "mpiFileUtils",
     ),
+    COURSE / "_config_options.yml": (
+        "SURF Research Cloud workspace",
+        'testing: "rome"',
+        "--partition=rome",
+    ),
 }
+# mpiFileUtils availability is still marked. Every other course-cluster
+# file states the workspace and the rome partition.
+SKIP_FORBIDDEN = {COURSE / "snippets/mpifileutils.md"}
+FORBIDDEN = (
+    "TODO(Rohit)",
+    "thin_course",
+    "Magic Castle",
+    "does not choose",
+    "does not pick",
+    "--partition=PARTITION",
+    "placeholder",
+)
 
 
 def referenced_names() -> set[str]:
@@ -43,16 +68,32 @@ def referenced_names() -> set[str]:
     return names
 
 
+def course_files() -> list[Path]:
+    files = []
+    for root in (COURSE, COURSE_CUSTOM):
+        for path in root.rglob("*"):
+            if path.is_file() and path.suffix.lower() in {".md", ".rmd", ".yml", ".yaml"}:
+                files.append(path)
+    return files
+
+
 def main() -> int:
     errors = []
-    for path, needles in REQUIRED_TODOS.items():
+    for path, needles in REQUIRED.items():
         if not path.is_file():
             errors.append(f"missing {path}")
             continue
         text = path.read_text(encoding="utf-8")
         for needle in needles:
             if needle not in text:
-                errors.append(f"{path.name} does not mention {needle}")
+                errors.append(f"{path.relative_to(ROOT)} does not mention {needle}")
+    for path in course_files():
+        if path in SKIP_FORBIDDEN:
+            continue
+        text = path.read_text(encoding="utf-8")
+        for needle in FORBIDDEN:
+            if needle in text:
+                errors.append(f"{path.relative_to(ROOT)} still contains {needle}")
     base = ROOT / "sites" / ex.BASE_SITE / "snippets"
     for name in sorted(referenced_names()):
         if "/" in name:

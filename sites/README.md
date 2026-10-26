@@ -22,7 +22,8 @@ falls back to the Magic Castle file, with the requesting site's values.
 
 `SUPERSURF_SITES=snellius` renders one site and skips the tabs.
 
-The course-cluster tab keeps two open questions as `TODO(Rohit)` notes:
-the cluster name and partition, and whether mpiFileUtils is installed.
-The hybrid-jobs lesson carries a third TODO for the Universidad de
+The course cluster is a SURF Research Cloud workspace. CPU jobs use
+`--partition=rome`. The login address is the one in the welcome note.
+Whether mpiFileUtils is installed is still a `TODO(Rohit)` note on that
+tab. The hybrid-jobs lesson carries a TODO for the Universidad de
 Cantabria license.

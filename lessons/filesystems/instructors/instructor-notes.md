@@ -32,7 +32,7 @@ Do not run the full `sbatch run.sh` (10^6 through 10^9 values, default directory
 
 Do not ask the course cluster for `--constraint=scratch-node`. The tab says the constraint is absent and `$TMPDIR` is already on the node disk.
 
-The published job scripts name the `rome` partition. Leave those lines. Do not choose `thin_course` or `rome` for the course cluster. That partition is still an open question on the course tab.
+The published job scripts name the `rome` partition. Leave those lines. The course cluster is a SURF Research Cloud workspace, and the course tab requests `--partition=rome`.
 
 Do not generate 1000 files of 1 MB if `df -h` shows little free space. The optional challenge uses 100 files on the course cluster.
 

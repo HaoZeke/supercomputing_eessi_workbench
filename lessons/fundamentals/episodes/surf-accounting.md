@@ -66,64 +66,13 @@ If you request every CPU core and no GPU, the node is fully allocated. The GPUs 
 
 If you request one core, the system rounds up to the smallest permitted unit. On `rome` that unit is 1/8 of the node. You then have every core in that unit, not the single core you typed.
 
-:::::: group-tab
-
-### Snellius
-
-The `rome` row of the accounting table is 521 nodes, 128 cores, 256 GB, 128 SBU per hour, smallest allocation 1/8 of a node.
-
-16 cores is 1/8 of 128, so it is the smallest `rome` job. At 128 SBU per node-hour that is 16 SBU per hour. Two hours is 32 SBU.
-
-```text
-cores x hours x (SBU per node-hour / cores per node)
-16 x 2 x (128 / 128) = 32
-```
-
-### Course cluster
-
-There is no project budget and `accinfo` is not installed. `sacct` still reports core-seconds in `CPUTimeRAW`.
-
-```bash
-sacct -j JOBID --format=JobID,Elapsed,AllocCPUS,CPUTimeRAW
-```
-
-### Magic Castle
-
-```bash
-sacct -j JOBID --format=JobID,Elapsed,AllocCPUS,TotalCPU
-```
-
-There is no SURF system billing unit on this cluster.
-
-::::::
+::: sites accounting
+:::
 
 Read the tab for the machine in the welcome note. The Snellius tab is the SBU table above. The course-cluster tab has no project budget.
 
-:::::: group-tab
-
-### Snellius
-
-Snellius is the Dutch national supercomputer, operated by SURF. Login nodes are named `int*`. A compute node name looks like `tcn386`. The public description is at <https://www.surf.nl/en/services/compute/snellius-the-national-supercomputer>.
-
-### Course cluster
-
-::: callout
-## TODO(Rohit)
-
-The course cluster name and partition for the next run are still open.
-The workbench uses a Magic Castle workspace and `--partition=thin_course`.
-The course README says SURF Research Cloud workspaces and the partition `rome`.
-The fundamentals deck says those two partition names point at the same nodes.
-This tab does not choose.
+::: sites cluster-identity
 :::
-
-Use the address in the welcome note. There is one login node. `module load 2025` loads EESSI 2025.06. There is no project budget. `sacct` still reports core-seconds in `CPUTimeRAW`.
-
-### Magic Castle
-
-This tab is the HPC Carpentry cloud cluster: Magic Castle with the EESSI software stack. Accounts are requested at <https://cluster.hpc-carpentry.org>. The login host is `cluster.hpc-carpentry.org`.
-
-::::::
 
 :::::::::::: challenge
 ## Cost a rome job
