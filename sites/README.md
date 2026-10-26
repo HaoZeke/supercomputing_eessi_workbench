@@ -24,6 +24,6 @@ falls back to the Magic Castle file, with the requesting site's values.
 
 The course cluster is a SURF Research Cloud workspace. CPU jobs use
 `--partition=rome`. The login address is the one in the welcome note.
-Whether mpiFileUtils is installed is still a `TODO(Rohit)` note on that
-tab. The hybrid-jobs lesson carries a TODO for the Universidad de
-Cantabria license.
+mpiFileUtils is installed on that workspace and is not an EESSI module.
+The hybrid-jobs lesson carries a TODO for the Universidad de Cantabria
+license.

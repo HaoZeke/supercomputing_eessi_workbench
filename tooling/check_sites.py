@@ -30,8 +30,9 @@ REQUIRED = {
         "welcome note",
     ),
     COURSE / "snippets/mpifileutils.md": (
-        "TODO(Rohit)",
-        "mpiFileUtils",
+        "mpiFileUtils is installed",
+        "not an EESSI module",
+        "--partition=rome",
     ),
     COURSE / "_config_options.yml": (
         "SURF Research Cloud workspace",
@@ -39,9 +40,6 @@ REQUIRED = {
         "--partition=rome",
     ),
 }
-# mpiFileUtils availability is still marked. Every other course-cluster
-# file states the workspace and the rome partition.
-SKIP_FORBIDDEN = {COURSE / "snippets/mpifileutils.md"}
 FORBIDDEN = (
     "TODO(Rohit)",
     "thin_course",
@@ -88,8 +86,6 @@ def main() -> int:
             if needle not in text:
                 errors.append(f"{path.relative_to(ROOT)} does not mention {needle}")
     for path in course_files():
-        if path in SKIP_FORBIDDEN:
-            continue
         text = path.read_text(encoding="utf-8")
         for needle in FORBIDDEN:
             if needle in text:

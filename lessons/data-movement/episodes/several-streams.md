@@ -68,7 +68,7 @@ srun dtar -c -f run.tar run/
 
 The manual is <https://mpifileutils.readthedocs.io/>.
 
-EESSI 2023.06 and 2025.06 do not provide mpiFileUtils. You use the module your site provides, or you build it with EasyBuild. Whether the course cluster has a module is open. Read the tab, and leave that question there.
+EESSI 2023.06 and 2025.06 do not provide mpiFileUtils. Snellius loads a site module or builds it with EasyBuild. The course cluster has mpiFileUtils installed, and that install is not an EESSI module. The tab has the commands for the machine in your welcome note.
 
 ::: sites mpifileutils
 :::
@@ -133,7 +133,7 @@ Pack the tiny files first. Four streams help when each shard is a large file. Th
 
 The file requests partition `rome`, `--nodes=2`, and `--ntasks-per-node=8`. Submit it from scratch with `sbatch dcp.slurm`.
 
-EESSI 2023.06 and 2025.06 do not provide mpiFileUtils. The mpiFileUtils tab is where the course-cluster question stays. Leave the module name to that tab. The partition tab is the request for this machine. Leave the script's partition line as published.
+EESSI 2023.06 and 2025.06 do not provide mpiFileUtils. On the course cluster it is installed, and it is not an EESSI module. The partition tab is the request for this machine. Leave the script's partition line as published.
 
 :::
 
@@ -145,6 +145,6 @@ EESSI 2023.06 and 2025.06 do not provide mpiFileUtils. The mpiFileUtils tab is w
 - Several streams help large files. Pack a million tiny files first.
 - `dwalk` counts, `dcp -p` copies, `dsync` matches the destination to the source, `drm --dryrun` lists a delete, and `dtar -c` writes a pax archive.
 - `dcp.slurm` asks for the `rome` partition, 2 nodes, and 8 tasks per node.
-- EESSI 2023.06 and 2025.06 do not provide mpiFileUtils.
+- EESSI 2023.06 and 2025.06 do not provide mpiFileUtils. The course cluster has it installed, and that install is not an EESSI module.
 
 :::

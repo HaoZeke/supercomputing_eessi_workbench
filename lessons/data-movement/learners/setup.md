@@ -12,6 +12,6 @@ The stage exercise needs Slurm. The script in `episodes/files/stage.slurm` is th
 
 `fpsync` comes from the fpart package. The `xargs` form in the several-streams episode does the same kind of copy.
 
-mpiFileUtils is optional. EESSI 2023.06 and 2025.06 do not provide it. The episode tab is where that question stays for the machine in your welcome note.
+mpiFileUtils is optional for the exercises that use `rsync`. EESSI 2023.06 and 2025.06 do not provide it. It is installed on the course cluster, and that install is not an EESSI module. The episode tab has the commands for the machine in your welcome note.
 
 The commands that leave the cluster use `snellius.surf.nl` as the SSH host and `archive.surf.nl` as the Data Archive login host.

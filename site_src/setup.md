@@ -24,7 +24,7 @@ ssh YOUR_LOGIN@MANAGER
 
 `module load 2025` loads EESSI 2025.06. `module load 2024` selects that same stack. There is no project budget on this cluster. `sacct` still reports core-seconds in `CPUTimeRAW`.
 
-Whether mpiFileUtils is installed there is also still open. EESSI 2023.06 and 2025.06 do not provide it. Do not tell the room that the course cluster has it, and do not tell them that it is missing.
+mpiFileUtils is installed on this workspace. It is not an EESSI module. EESSI 2023.06 and 2025.06 do not provide it.
 
 ## The EESSI client, when you have no cluster
 

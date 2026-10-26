@@ -31,7 +31,7 @@ The ext4 note on the deck (26 October 2026) says the order matches the predictio
 
 The published scripts name the `rome` partition, and `stage.slurm` also sets `--constraint=scratch-node`. Leave those lines as published. The site tabs are what you show for the machine in the welcome note. The course cluster is a SURF Research Cloud workspace, and the course tab requests `--partition=rome`.
 
-EESSI 2023.06 and 2025.06 do not provide mpiFileUtils. Do not tell the room that the course cluster has it, and do not tell them that it is missing there. That tab is still marked TODO(Rohit).
+EESSI 2023.06 and 2025.06 do not provide mpiFileUtils. The course cluster has it installed. That install is not an EESSI module. The course tab shows the commands.
 
 `fpsync` needs fpart. If it is absent, teach the `xargs -P 4` form and move on.
 

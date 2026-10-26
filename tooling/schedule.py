@@ -327,7 +327,6 @@ def render(out: Path) -> None:
 <p>Lesson text is CC-BY 4.0, except the hybrid MPI and OpenMP lesson. The license for that lesson is still open. It was adapted from Introducción a la Supercomputación by José Luis Bosque, Borja Pérez, Ramón Beivide, and Carmen Martínez of the Universidad de Cantabria, by the EuroCC NL team at SURF. The TODO on that lesson stays until the license is confirmed. Do not treat the CC-BY line in its config as permission.</p>
 <h2>Still open</h2>
 <ul>
-<li>TODO(Rohit): whether mpiFileUtils is available on the course cluster. EESSI 2023.06 and 2025.06 do not provide it.</li>
 <li>TODO(Rohit): the license for the Universidad de Cantabria hybrid-jobs material.</li>
 </ul>
 """,
