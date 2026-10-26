@@ -1,14 +1,9 @@
 name: "Bot: Receive Pull Request"
 description: "Receive a pull request and build the markdown source files"
+# Stock Workbench workflows expect one lesson at the repository root.
+# lessons/* are built by "01 Maintain: Build and Deploy Site".
 on:
-  pull_request:
-    types:
-      [opened, synchronize, reopened]
   workflow_dispatch:
-    inputs:
-      pr_number:
-        type: number
-        required: true
 
 concurrency:
   group: ${{ github.ref }}

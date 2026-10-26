@@ -1,9 +1,9 @@
 name: "Bot: Send Close Pull Request Signal"
 
+# Stock Workbench workflows expect one lesson at the repository root.
+# lessons/* are built by "01 Maintain: Build and Deploy Site".
 on:
-  pull_request:
-    types:
-      [closed]
+  workflow_dispatch:
 
 jobs:
   send-close-signal:

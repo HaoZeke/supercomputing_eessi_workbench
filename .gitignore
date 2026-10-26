@@ -42,3 +42,7 @@ slides/*.xdv
 # python
 __pycache__/
 *.pyc
+
+# per-lesson sandpaper builds
+lessons/*/site/*
+!lessons/*/site/README.md

@@ -1,10 +1,9 @@
 name: "Bot: Comment on the Pull Request"
 description: "Comment on the pull request with the results of the markdown generation"
+# Stock Workbench workflows expect one lesson at the repository root.
+# lessons/* are built by "01 Maintain: Build and Deploy Site".
 on:
-  workflow_run:
-    workflows: ["Bot: Receive Pull Request"]
-    types:
-      - completed
+  workflow_dispatch:
 
 jobs:
   # Pull requests are valid if:
