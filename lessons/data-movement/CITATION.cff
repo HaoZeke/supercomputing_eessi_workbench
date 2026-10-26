@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+title: Moving data
+message: Please cite this lesson if you re-use it.
+type: dataset
+authors:
+  - given-names: Rohit
+    family-names: Goswami
+    orcid: https://orcid.org/0000-0002-2393-8056
+    email: rgoswami@ieee.org
+repository-code: https://github.com/HaoZeke/supercomputing_eessi_workbench
+license: CC-BY-4.0

@@ -1,0 +1,26 @@
+carpentry: supersurf
+carpentry_description: "supersurf"
+title: "Moving data"
+created: 2026-10-26
+keywords: "hpc, rsync, scratch, checksum"
+life_cycle: pre-alpha
+license: CC-BY 4.0
+source: https://github.com/HaoZeke/supercomputing_eessi_workbench
+branch: main
+contact: rgoswami@ieee.org
+url: https://supersurf.rgoswami.me/data-movement/
+lang: en
+episodes:
+- why-copying-hurts.md
+- pack-and-checksum.md
+- rsync.md
+- several-streams.md
+- from-outside.md
+- stage-in-stage-out.md
+learners:
+- setup.md
+- reference.md
+instructors:
+- instructor-notes.md
+profiles:
+- learner-profiles.md
