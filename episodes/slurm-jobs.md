@@ -23,7 +23,7 @@ A batch script is a shell script with a header of `#SBATCH` lines. Slurm reads t
 
 This is the Snellius shape. The file in the lesson is `episodes/files/pi-snellius.sh`.
 
-``` {.bash org-language="sh"}
+``` bash
 #!/bin/bash
 #SBATCH --job-name=pi-one
 #SBATCH --partition=rome
@@ -45,7 +45,7 @@ On the course cluster the same nodes answer to `rome` and to `thin_course`, and 
 
 Submit from the directory that contains `pi_one.py`:
 
-``` {.bash org-language="sh"}
+``` bash
 sbatch pi-course.sh
 squeue -u "$USER"
 ```
@@ -85,7 +85,7 @@ A job array runs the same script many times. `SLURM_ARRAY_TASK_ID` is 0, 1, 2, o
 
 `episodes/files/pi-array.sh`:
 
-``` {.bash org-language="sh"}
+``` bash
 #!/bin/bash
 #SBATCH --job-name=pi-array
 #SBATCH --partition=thin_course
@@ -103,7 +103,7 @@ python3 pi_one.py
 
 ## A faded header
 
-``` {.bash org-language="sh"}
+``` bash
 #SBATCH --job-name=________
 #SBATCH --partition=________
 #SBATCH --cpus-per-task=________
@@ -137,7 +137,7 @@ bash episodes/files/exercises/check-batch-script.sh
 
 Then, if you are on the course cluster, submit the one-core script and the array. Copy `pi_one.py` into the directory you submit from, or submit from `episodes/files`.
 
-``` {.bash org-language="sh"}
+``` bash
 cd episodes/files
 sbatch pi-course.sh
 sbatch pi-array.sh

@@ -21,7 +21,7 @@ exercises: 20
 
 `time -p` is the POSIX form. It prints three lines to standard error: `real`, `user`, and `sys`. `real` is the elapsed time you waited. `user` and `sys` add up CPU time, which can be larger than `real` when several cores run at once.
 
-``` {.bash org-language="sh"}
+``` bash
 time -p python3 episodes/files/pi_one.py
 ```
 
@@ -64,7 +64,7 @@ The bandwidth roof is how fast bytes move. If the kernel does little arithmetic 
 
 Arithmetic intensity is arithmetic per byte moved. A low intensity sits under the bandwidth roof. A high intensity sits under the peak roof. You do not need a profiler to use the picture. You need it so that \"use more cores\" is not your only idea.
 
-![Two bounds for a program. The nodes drawn are bandwidth roof, peak roof, and your code.](fig/roofline.svg)
+![Two bounds for a program. The nodes drawn are bandwidth roof, peak roof, and your code.](fig/roofline.svg){alt='Two bounds for a program. The nodes drawn are bandwidth roof, peak roof, and your code.'}
 
 ## A faded efficiency
 
@@ -100,7 +100,7 @@ python3 episodes/files/exercises/scaling-table.py
 
 From the lesson directory, with `python3` available:
 
-``` {.bash org-language="sh"}
+``` bash
 SAMPLE_COUNT=1000 time -p python3 episodes/files/pi_one.py
 ```
 

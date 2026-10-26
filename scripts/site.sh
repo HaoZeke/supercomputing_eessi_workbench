@@ -10,7 +10,7 @@ if [[ "${1:-}" == "serve" ]]; then
   exec python -m http.server 8000 --directory site/docs
 fi
 
-Rscript -e 'options(warn = 1); sandpaper::build_lesson(quiet = FALSE)'
+Rscript scripts/build-lesson.R
 python scripts/add-alt-html.py
 if [[ -f site_assets/favicons/incubator/favicon.ico && -d site/docs ]]; then
   cp site_assets/favicons/incubator/favicon.ico site/docs/favicon.ico

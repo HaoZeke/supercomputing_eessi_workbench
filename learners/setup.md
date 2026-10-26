@@ -8,7 +8,7 @@ You need a terminal and one of the three machines below. You do not need all thr
 
 Snellius is the Dutch national supercomputer. SURF sends the account mail after your project has a login. The public description of the machine is at <https://www.surf.nl/en/services/compute/snellius-the-national-supercomputer>.
 
-``` {.bash org-language="sh"}
+``` bash
 ssh YOUR_LOGIN@snellius.surf.nl
 ```
 
@@ -20,7 +20,7 @@ A browser session through Open OnDemand is still a login node. Do not start the 
 
 The course cluster is a Magic Castle workspace on SURF Research Cloud. The template is <https://github.com/ComputeCanada/magic_castle>. Your trainer sends a setup link. That link sets your password. The welcome note has the address, written here as `MANAGER`.
 
-``` {.bash org-language="sh"}
+``` bash
 ssh YOUR_LOGIN@MANAGER
 ```
 
@@ -32,7 +32,7 @@ The software episodes also run in the EESSI client container. Access is document
 
 You need Apptainer 1.0 or newer, with `--fusemount` support. This shell is the short form of the client script on that page. It mounts the same repository the cluster uses. It does not give you Slurm.
 
-``` {.bash org-language="sh"}
+``` bash
 mkdir -p "$HOME/eessi-work/var-lib-cvmfs" "$HOME/eessi-work/var-run-cvmfs" "$HOME/eessi-work/home"
 export APPTAINER_BIND="$HOME/eessi-work/var-run-cvmfs:/var/run/cvmfs,$HOME/eessi-work/var-lib-cvmfs:/var/lib/cvmfs"
 export APPTAINER_HOME="$HOME/eessi-work/home:/home/$USER"
@@ -41,7 +41,7 @@ apptainer shell --fusemount "container:cvmfs2 software.eessi.io /cvmfs/software.
 
 Inside the container:
 
-``` {.bash org-language="sh"}
+``` bash
 source /cvmfs/software.eessi.io/versions/2025.06/init/lmod/bash
 module load Python/3.13.5-GCCcore-14.3.0
 python3 --version

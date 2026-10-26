@@ -23,7 +23,7 @@ If every person compiles their own Python, the cluster fills up with almost the 
 
 EESSI is that kind of stack, distributed with CVMFS. CVMFS shows a directory tree that is the same on every machine that mounts it, and it fetches a file when you first use it. The tree for this lesson is `/cvmfs/software.eessi.io`.
 
-![Where a program comes from. The nodes drawn are your script, CVMFS, EESSI, module, and the program.](fig/shared-stack.svg)
+![Where a program comes from. The nodes drawn are your script, CVMFS, EESSI, module, and the program.](fig/shared-stack.svg){alt='Where a program comes from. The nodes drawn are your script, CVMFS, EESSI, module, and the program.'}
 
 How those builds are produced is a different course. EasyBuild is the tool that turns a recipe into the module you load. Read that story in the book at <https://hpceb.rgoswami.me/> and in the sources at <https://github.com/HaoZeke/what-easybuild-is-doing>. This episode only uses the result.
 
@@ -31,7 +31,7 @@ How those builds are produced is a different course. EasyBuild is the tool that 
 
 On any machine where the repository is mounted, including the EESSI client container:
 
-``` {.bash org-language="sh"}
+``` bash
 source /cvmfs/software.eessi.io/versions/2025.06/init/lmod/bash
 ```
 
@@ -47,7 +47,7 @@ Your line may name a different CPU. Read the line. Do not copy a path from someo
 
 Two variables are stable:
 
-``` {.bash org-language="sh"}
+``` bash
 printf '%s\n' "$EESSI_VERSION"
 printf '%s\n' "$EESSI_CVMFS_REPO"
 ```
@@ -74,7 +74,7 @@ In EESSI 2023.06 one of the modules is `Python/3.11.5-GCCcore-13.2.0`.
 
 Load the 2025.06 default, then ask Python where it lives:
 
-``` {.bash org-language="sh"}
+``` bash
 module load Python/3.13.5-GCCcore-14.3.0
 python3 --version
 ```
@@ -85,7 +85,7 @@ python3 --version
 
 ## A faded load
 
-``` {.bash org-language="sh"}
+``` bash
 source /cvmfs/software.eessi.io/versions/________/init/lmod/bash
 module load Python/________
 python3 --version
@@ -133,7 +133,7 @@ python3 -c 'import sys; print(sys.version.split()[0])'
 
 On the course cluster:
 
-``` {.bash org-language="sh"}
+``` bash
 module purge
 module load 2025
 module spider Python

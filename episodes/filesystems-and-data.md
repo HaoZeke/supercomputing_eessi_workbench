@@ -38,7 +38,7 @@ Home holds 200 GiB. An unused file on scratch-shared is removed after 14 days. S
 </div>
 :::
 
-![Where files live on Snellius. The nodes drawn are home, scratch-shared, scratch-node, and project.](fig/filesystems.svg)
+![Where files live on Snellius. The nodes drawn are home, scratch-shared, scratch-node, and project.](fig/filesystems.svg){alt='Where files live on Snellius. The nodes drawn are home, scratch-shared, scratch-node, and project.'}
 
 On the course cluster you have three mounts, not six. `/home` is the shared home file system. `/project` is large shared scratch, and it is not the same path as Snellius `/projects`. `/scratch` is the local disk on that machine. It is not shared with the other nodes. There is no tape archive.
 
@@ -52,7 +52,7 @@ Fifty single-line files are a bad transfer. Each file is a separate metadata ope
 
 From the machine that has the files, towards the cluster:
 
-``` {.bash org-language="sh"}
+``` bash
 tar -cf many.tar many
 rsync -avP many.tar YOUR_LOGIN@snellius.surf.nl:/scratch-shared/$USER/
 ```
@@ -61,13 +61,13 @@ On the course cluster the destination is `YOUR_LOGIN@MANAGER:/project/$USER/`. C
 
 Then check the bytes. On the source:
 
-``` {.bash org-language="sh"}
+``` bash
 sha256sum many.tar > many.tar.sha256
 ```
 
 Copy the `.sha256` file the same way, and on the destination:
 
-``` {.bash org-language="sh"}
+``` bash
 sha256sum -c many.tar.sha256
 ```
 
@@ -83,7 +83,7 @@ The module name is site-specific. On the course cluster, `module load 2025` and 
 
 ## A faded destination
 
-``` {.bash org-language="sh"}
+``` bash
 rsync -avP many.tar ________:________/
 ```
 

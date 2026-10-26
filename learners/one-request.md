@@ -6,7 +6,7 @@ By the end of the Slurm episode you should be able to write one request without 
 
 ## On the course cluster
 
-``` {.bash org-language="sh"}
+``` bash
 #!/bin/bash
 #SBATCH --job-name=pi-one
 #SBATCH --partition=thin_course
@@ -24,7 +24,7 @@ python3 pi_one.py
 
 ## On Snellius
 
-``` {.bash org-language="sh"}
+``` bash
 #!/bin/bash
 #SBATCH --job-name=pi-one
 #SBATCH --partition=rome
@@ -44,7 +44,7 @@ A smaller core count on `rome` is rounded up to 16. Ask for 16 so the script mat
 
 From the directory that contains `pi_one.py`:
 
-``` {.bash org-language="sh"}
+``` bash
 sbatch pi-course.sh
 squeue -u "$USER"
 ```

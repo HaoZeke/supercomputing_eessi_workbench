@@ -25,10 +25,11 @@ def apply_alt(text: str, mapping: dict[str, str]) -> str:
         src = match.group(2)
         name = Path(src).name
         if name in mapping:
-            return f"![{mapping[name]}]({src})"
+            alt = mapping[name].replace("'", "")
+            return f"![{mapping[name]}]({src}){{alt='{alt}'}}"
         return match.group(0)
 
-    return re.sub(r"!\[(.*?)\]\(([^)\s]+)\)", repl, text)
+    return re.sub(r"!\[(.*?)\]\(([^)\s]+)\)(?:\{alt='[^']*'\})?", repl, text)
 
 
 def main() -> None:

@@ -23,7 +23,7 @@ A one-second task with its own `sbatch` still waits in the queue, still writes a
 
 A pilot job goes further. You ask Slurm for a block of cores once. A small manager sits inside that allocation and starts the short tasks itself. The queue saw one job.
 
-![Many tasks inside one Slurm job. The nodes drawn are one allocation, pilot, and many tasks.](fig/many-tasks.svg)
+![Many tasks inside one Slurm job. The nodes drawn are one allocation, pilot, and many tasks.](fig/many-tasks.svg){alt='Many tasks inside one Slurm job. The nodes drawn are one allocation, pilot, and many tasks.'}
 
 ## QCG-PilotJob on the course cluster
 

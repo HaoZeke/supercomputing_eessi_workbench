@@ -52,7 +52,7 @@ One real job id from the room, one `pi-*.out` line, and the eight-core efficienc
 
 From a checkout, with pixi:
 
-``` {.bash org-language="sh"}
+``` bash
 pixi run build
 pixi run gate
 pixi run check

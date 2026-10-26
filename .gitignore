@@ -38,3 +38,7 @@ slides/*.xdv
 # pixi
 .pixi/*
 !.pixi/config.toml
+
+# python
+__pycache__/
+*.pyc

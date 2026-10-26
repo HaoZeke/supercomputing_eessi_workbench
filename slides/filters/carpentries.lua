@@ -9,6 +9,22 @@ function Code(el)
   return nil
 end
 
+function CodeBlock(el)
+  if not FORMAT:match("markdown") then
+    return nil
+  end
+  -- Org records the source language twice. Pegboard cannot parse the attribute.
+  el.attributes["org-language"] = nil
+  local lang = el.classes[1]
+  if lang == "bash" or lang == "sh" or lang == "shell" then
+    lang = "bash"
+  end
+  if lang == nil then
+    return pandoc.CodeBlock(el.text)
+  end
+  return pandoc.CodeBlock(el.text, pandoc.Attr("", {lang}, {}))
+end
+
 local function inlines_to_text(inlines)
   local parts = {}
   for _, item in ipairs(inlines) do

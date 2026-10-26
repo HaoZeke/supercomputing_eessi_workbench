@@ -17,7 +17,7 @@ The four sample sizes are listed in `learners/sample-buildlist`:
 
 1000 points is small enough to run in front of you.
 
-``` {.bash org-language="sh"}
+``` bash
 export SAMPLE_COUNT=1000
 python3 episodes/files/pi_one.py
 ```

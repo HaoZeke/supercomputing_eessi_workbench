@@ -27,7 +27,7 @@ You will meet three roles.
 - The **scheduler** is the queue. On Snellius and on the course cluster the scheduler is Slurm. You describe the resources you need. Slurm starts the work when those resources are free.
 - A **compute node** is where the work runs. You do not SSH there for a normal batch job. Slurm starts your script on that node and writes the text output to a file.
 
-![How a job moves. The nodes drawn are laptop, login node, scheduler, and compute node.](fig/login-path.svg)
+![How a job moves. The nodes drawn are laptop, login node, scheduler, and compute node.](fig/login-path.svg){alt='How a job moves. The nodes drawn are laptop, login node, scheduler, and compute node.'}
 
 ## Snellius
 
@@ -35,7 +35,7 @@ Snellius is the Dutch national supercomputer, operated by SURF. The public descr
 
 From your own computer:
 
-``` {.bash org-language="sh"}
+``` bash
 ssh YOUR_LOGIN@snellius.surf.nl
 ```
 
@@ -51,7 +51,7 @@ A password prompt on the login node is normal. A job does not start because you 
 
 This course also uses a small cluster built from SURF Research Cloud workspaces. The template is Magic Castle: <https://github.com/ComputeCanada/magic_castle>. Your trainer sends a setup link. That link creates your password. There is one login node, and there is no CUA account.
 
-``` {.bash org-language="sh"}
+``` bash
 ssh YOUR_LOGIN@MANAGER
 ```
 
@@ -63,7 +63,7 @@ There is no project budget on the course cluster. `accinfo` is not installed. `s
 
 Fill the blank for the machine you are actually using.
 
-``` {.bash org-language="sh"}
+``` bash
 ssh ________@________
 ```
 
@@ -71,7 +71,7 @@ On Snellius the host is `snellius.surf.nl` and the name is your CUA login. On th
 
 The sample SSH config in `episodes/files/ssh-config-sample` is the Snellius shape:
 
-``` {.bash org-language="sh"}
+``` bash
 Host snellius
   HostName snellius.surf.nl
   User YOUR_LOGIN
@@ -116,7 +116,7 @@ It reads `HostName` from `episodes/files/ssh-config-sample` and exits with an er
 
 On Snellius or the course cluster, run:
 
-``` {.bash org-language="sh"}
+``` bash
 hostname
 sinfo -s
 who
