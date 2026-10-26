@@ -13,10 +13,16 @@
     <loc>https://HaoZeke.github.io/supercomputing_eessi_workbench/a-live-subject.html</loc>
   </url>
   <url>
+    <loc>https://HaoZeke.github.io/supercomputing_eessi_workbench/aio.html</loc>
+  </url>
+  <url>
     <loc>https://HaoZeke.github.io/supercomputing_eessi_workbench/citation.html</loc>
   </url>
   <url>
     <loc>https://HaoZeke.github.io/supercomputing_eessi_workbench/filesystems-and-data.html</loc>
+  </url>
+  <url>
+    <loc>https://HaoZeke.github.io/supercomputing_eessi_workbench/images.html</loc>
   </url>
   <url>
     <loc>https://HaoZeke.github.io/supercomputing_eessi_workbench/index.html</loc>
@@ -34,13 +40,25 @@
     <loc>https://HaoZeke.github.io/supercomputing_eessi_workbench/instructor/a-live-subject.html</loc>
   </url>
   <url>
+    <loc>https://HaoZeke.github.io/supercomputing_eessi_workbench/instructor/aio.html</loc>
+  </url>
+  <url>
     <loc>https://HaoZeke.github.io/supercomputing_eessi_workbench/instructor/citation.html</loc>
   </url>
   <url>
     <loc>https://HaoZeke.github.io/supercomputing_eessi_workbench/instructor/filesystems-and-data.html</loc>
   </url>
   <url>
+    <loc>https://HaoZeke.github.io/supercomputing_eessi_workbench/instructor/images.html</loc>
+  </url>
+  <url>
     <loc>https://HaoZeke.github.io/supercomputing_eessi_workbench/instructor/index.html</loc>
+  </url>
+  <url>
+    <loc>https://HaoZeke.github.io/supercomputing_eessi_workbench/instructor/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://HaoZeke.github.io/supercomputing_eessi_workbench/instructor/key-points.html</loc>
   </url>
   <url>
     <loc>https://HaoZeke.github.io/supercomputing_eessi_workbench/instructor/many-tasks.html</loc>
@@ -65,6 +83,12 @@
   </url>
   <url>
     <loc>https://HaoZeke.github.io/supercomputing_eessi_workbench/instructor/what-is-a-supercomputer.html</loc>
+  </url>
+  <url>
+    <loc>https://HaoZeke.github.io/supercomputing_eessi_workbench/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://HaoZeke.github.io/supercomputing_eessi_workbench/key-points.html</loc>
   </url>
   <url>
     <loc>https://HaoZeke.github.io/supercomputing_eessi_workbench/many-tasks.html</loc>
