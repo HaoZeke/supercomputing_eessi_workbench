@@ -20,7 +20,7 @@ the repository ("repo"), you will need to become a member of the HPC
 Intro Maintainers team, which lives inside the "carpentries-incubator"
 [project][incubator-base].
 
-See also the instructions for [contributing](CONTRIBUTING.md).
+See also the instructions for [contributing](https://github.com/carpentries-incubator/hpc-intro/blob/7081080674aceeb0a4bc57b9348da22d876af802/CONTRIBUTING.md).
 
 #### HPC-Carpentry Project
 
@@ -70,7 +70,7 @@ GitHub repo. The Zenodo account is owned by Peter Steinbach (@psteinb).
 ### Continuous Integration
 
 The high-level lesson structure is described reasonably well in the
-[README](README.md) file, but there are some subtleties that can arise
+[README](https://github.com/carpentries-incubator/hpc-intro/blob/7081080674aceeb0a4bc57b9348da22d876af802/README.md) file, but there are some subtleties that can arise
 at build-time.
 
 You can locally preview some of the tests by providing arguments to
