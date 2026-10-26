@@ -8,7 +8,7 @@ Three sessions, four hours each. The full lesson is what you build. The schedule
 - [ ] `module load 2025` then `module load Python/3.13.5-GCCcore-14.3.0` then `python3 --version` prints `Python 3.13.5`.
 - [ ] On the course cluster, `module load 2024` still selects EESSI 2025.06, and QCG-PilotJob loads from the site build. It is not an EESSI module.
 - [ ] You can show the three site tabs. The course cluster is a SURF Research Cloud workspace, and its tab requests `--partition=rome`. The published scripts keep the `#SBATCH` lines they were written with. Overrides go on the `sbatch` command.
-- [ ] The hybrid lesson still has the TODO(Rohit) callout on the license. Leave it on screen. The names to keep are José Luis Bosque, Borja Pérez, Ramón Beivide, and Carmen Martínez, Universidad de Cantabria, adapted by the EuroCC NL team at SURF.
+- [ ] The hybrid lesson is CC-BY 4.0. It is adapted from Introducción a la Supercomputación by José Luis Bosque, Borja Pérez, Ramón Beivide, and Carmen Martínez, Universidad de Cantabria, by the EuroCC NL team at SURF. The credits are on the lesson index.
 
 ## How a session runs
 

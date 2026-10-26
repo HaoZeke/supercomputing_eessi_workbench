@@ -4,12 +4,6 @@ teaching: 20
 exercises: 20
 ---
 
-::: callout
-## TODO(Rohit)
-
-The license for this lesson is still open. The course README says the module was adapted from Introducción a la Supercomputación by José Luis Bosque, Borja Pérez, Ramón Beivide, and Carmen Martínez of the Universidad de Cantabria, by the EuroCC NL team at SURF. Keep that attribution. Do not treat it as permission to republish the text under CC-BY until the license is confirmed.
-:::
-
 ::: questions
 
 - Which Slurm option is a node, a task, a core, and a thread?

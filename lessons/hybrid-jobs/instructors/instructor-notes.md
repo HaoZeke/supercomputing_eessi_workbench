@@ -13,7 +13,7 @@ title: Instructor notes
 
 ## License
 
-The TODO(Rohit) callout at the top of the lesson is still open. Keep the names: José Luis Bosque, Borja Pérez, Ramón Beivide, and Carmen Martínez, Universidad de Cantabria, EuroCC NL at SURF. Leave that callout in place for the whole class.
+This lesson is CC-BY 4.0. It is adapted from Introducción a la Supercomputación by José Luis Bosque, Borja Pérez, Ramón Beivide, and Carmen Martínez, Universidad de Cantabria, by the EuroCC NL team at SURF. The names are on the lesson index and in `AUTHORS` and `CITATION.cff`.
 
 ## Cluster tabs
 

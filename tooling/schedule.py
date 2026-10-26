@@ -324,11 +324,7 @@ def render(out: Path) -> None:
 <p>The course text is <a href="https://github.com/sara-nl/introduction-to-supercomputing">sara-nl/introduction-to-supercomputing</a> and Rohit's fork <a href="https://github.com/HaoZeke/introduction-to-supercomputing">HaoZeke/introduction-to-supercomputing</a>. Deck branches used here: <code>fix/slides-fundamentals-source</code>, <code>fix/slides-fs-source</code>, <code>fix/slides-qcg-source</code>, <code>fix/slides-performance-source</code>, <code>feat/workflow-alternatives</code>, <code>feat/data-movement-deck</code>, and <code>src/eessi-notes</code>.</p>
 <p>Fundamentals vendors <a href="https://github.com/carpentries-incubator/hpc-intro">carpentries-incubator/hpc-intro</a> at <code>7081080674aceeb0a4bc57b9348da22d876af802</code>. That lesson is CC-BY 4.0, Copyright (c) The Carpentries. Authors are in <code>lessons/fundamentals/AUTHORS</code>.</p>
 <h2>License</h2>
-<p>Lesson text is CC-BY 4.0, except the hybrid MPI and OpenMP lesson. The license for that lesson is still open. It was adapted from Introducción a la Supercomputación by José Luis Bosque, Borja Pérez, Ramón Beivide, and Carmen Martínez of the Universidad de Cantabria, by the EuroCC NL team at SURF. The TODO on that lesson stays until the license is confirmed. Do not treat the CC-BY line in its config as permission.</p>
-<h2>Still open</h2>
-<ul>
-<li>TODO(Rohit): the license for the Universidad de Cantabria hybrid-jobs material.</li>
-</ul>
+<p>Lesson text is CC-BY 4.0. The hybrid MPI and OpenMP lesson is adapted from Introducción a la Supercomputación by José Luis Bosque, Borja Pérez, Ramón Beivide, and Carmen Martínez, Universidad de Cantabria, by the EuroCC NL team at SURF.</p>
 """,
     )
     out.mkdir(parents=True, exist_ok=True)

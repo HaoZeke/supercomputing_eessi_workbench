@@ -5,6 +5,8 @@ created: 2026-10-26
 keywords: "slurm, mpi, openmp, hybrid"
 life_cycle: pre-alpha
 license: CC-BY 4.0
+# Attribution: José Luis Bosque, Borja Pérez, Ramón Beivide, and Carmen
+# Martínez, Universidad de Cantabria. Adapted by the EuroCC NL team at SURF.
 source: https://github.com/HaoZeke/supercomputing_eessi_workbench
 branch: main
 contact: rgoswami@ieee.org

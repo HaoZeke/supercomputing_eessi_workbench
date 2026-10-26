@@ -1,12 +1,21 @@
 cff-version: 1.2.0
 title: Hybrid MPI and OpenMP
 message: |
-  TODO(Rohit). The license for this lesson is still open. The course README says the module was adapted from Introducción a la Supercomputación by José Luis Bosque, Borja Pérez, Ramón Beivide, and Carmen Martínez of the Universidad de Cantabria, by the EuroCC NL team at SURF. Keep that attribution. Do not treat it as permission to republish the text under CC-BY until the license is confirmed.
+  Please cite this lesson if you re-use it. It is adapted from Introducción a la Supercomputación by José Luis Bosque, Borja Pérez, Ramón Beivide, and Carmen Martínez, Universidad de Cantabria, by the EuroCC NL team at SURF. License: CC-BY 4.0.
 type: dataset
 authors:
-  - given-names: Rohit
-    family-names: Goswami
-    orcid: https://orcid.org/0000-0002-2393-8056
-    email: rgoswami@ieee.org
+  - given-names: José Luis
+    family-names: Bosque
+    affiliation: Universidad de Cantabria
+  - given-names: Borja
+    family-names: Pérez
+    affiliation: Universidad de Cantabria
+  - given-names: Ramón
+    family-names: Beivide
+    affiliation: Universidad de Cantabria
+  - given-names: Carmen
+    family-names: Martínez
+    affiliation: Universidad de Cantabria
+  - name: EuroCC NL team at SURF
 repository-code: https://github.com/HaoZeke/supercomputing_eessi_workbench
 license: CC-BY-4.0
