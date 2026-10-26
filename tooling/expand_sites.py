@@ -13,6 +13,11 @@ Search order for a snippet, per site:
 A missing copy falls back to the Magic Castle snippet, with the requesting
 site's values filled in. That is the hpc-intro overlay rule: a site directory
 holds only the files that differ.
+
+hpc-intro writes `` `r config$a$b` ``, `` `r site$a$b` ``, and ``{{ site.a.b }}``.
+A leading ``site.`` is the same path as the config root. A few inline
+expressions (home path, optional account line, optional qos line, Slurm
+separator) are filled here so knitr never sees them.
 """
 
 from __future__ import annotations
@@ -41,8 +46,23 @@ SITE_DIV = re.compile(
 )
 R_CHUNK = re.compile(r"^```\{r[^}]*\}\n(?P<body>.*?)\n```", re.M | re.S)
 SNIPPET_CALL = re.compile(r"""snippets\(\s*['"]([^'"]+)['"]\s*\)""")
-INLINE_CONFIG = re.compile(r"`r config\$((?:[A-Za-z0-9_]+\$)*[A-Za-z0-9_]+)`")
+INLINE_CONFIG = re.compile(
+    r"`r (?:config|site)\$((?:[A-Za-z0-9_]+\$)*[A-Za-z0-9_]+)`"
+)
 MUSTACHE = re.compile(r"\{\{\s*([A-Za-z0-9_.]+)\s*\}\}")
+# hpc-intro inline R that is not a single config lookup.
+HOME_PASTE = re.compile(
+    r"`r paste\(config\$remote\$fs\$home,config\$remote\$user,sep=\"/\"\)`"
+)
+QOS_LINE = re.compile(
+    r"`r if \(!is\.null\(config\$sched\$flag\$qos\)\) paste\(config\$sched\$comment,config\$sched\$flag\$qos\) else \"\"`"
+)
+SLURM_SEP = re.compile(
+    r"`r if\(config\$sched\$name == \"Slurm\"\) \{print\(\" \"\)\} else \{print\(\"=\"\)\}`"
+)
+ACCOUNT_LINE = re.compile(
+    r"`r if \(!is\.null\(config\$sched\$account\)\) \{paste0\(config\$remote\$shebang, \"\\n\", config\$sched\$comment, \" \", config\$sched\$flag\$account, \"=\", config\$sched\$account\)\} else \{paste0\(config\$remote\$shebang\)\}`"
+)
 CODE_FENCE = re.compile(r"^(?P<fence>`{3,}|~{3,})(?P<info>[^\n]*)\n(?P<body>.*?)\n(?P=fence)\s*$", re.M | re.S)
 
 
@@ -127,12 +147,21 @@ def parse_scalar(text: str):
 
 def lookup(cfg: dict, path: str):
     path = path.replace("$", ".")
+    if path.startswith("site."):
+        path = path[len("site.") :]
     cur = cfg
     for part in path.split("."):
         if not isinstance(cur, dict) or part not in cur:
             return None
         cur = cur[part]
     return cur
+
+
+def need(cfg: dict, path: str):
+    value = lookup(cfg, path)
+    if value is None:
+        raise ExpandError(f"missing config value {path}")
+    return value
 
 
 def deep_merge(base: dict, overlay: dict) -> dict:
@@ -212,6 +241,37 @@ def read_snippet(site_id: str, name: str, lesson: Path, root: Path) -> str | Non
     return None
 
 
+def apply_hpc_expressions(text: str, cfg: dict) -> str:
+    """Fill the inline R expressions hpc-intro uses besides a single lookup."""
+
+    def home(_match: re.Match) -> str:
+        return f"{need(cfg, 'remote.fs.home')}/{need(cfg, 'remote.user')}"
+
+    def qos(_match: re.Match) -> str:
+        flag = lookup(cfg, "sched.flag.qos")
+        if not flag:
+            return ""
+        return f"{need(cfg, 'sched.comment')} {flag}"
+
+    def sep(_match: re.Match) -> str:
+        return " " if need(cfg, "sched.name") == "Slurm" else "="
+
+    def account(_match: re.Match) -> str:
+        shebang = str(need(cfg, "remote.shebang"))
+        account_name = lookup(cfg, "sched.account")
+        if not account_name:
+            return shebang
+        comment = need(cfg, "sched.comment")
+        flag = need(cfg, "sched.flag.account")
+        return f"{shebang}\n{comment} {flag}={account_name}"
+
+    text = HOME_PASTE.sub(home, text)
+    text = QOS_LINE.sub(qos, text)
+    text = SLURM_SEP.sub(sep, text)
+    text = ACCOUNT_LINE.sub(account, text)
+    return text
+
+
 def fill_config(text: str, cfg: dict) -> str:
     def inline(match: re.Match) -> str:
         value = lookup(cfg, match.group(1))
@@ -225,13 +285,16 @@ def fill_config(text: str, cfg: dict) -> str:
             raise ExpandError(f"missing config value {{{{{match.group(1)}}}}}")
         return str(value)
 
+    text = apply_hpc_expressions(text, cfg)
     text = INLINE_CONFIG.sub(inline, text)
     text = MUSTACHE.sub(mustache, text)
     return text
 
 
 def fence_for(body: str) -> str:
-    longest = 3
+    # Longer than a callout (`:::`) so a tab can contain one.
+    # Callers that wrap a tab in another div need a still longer fence.
+    longest = 5
     for match in re.finditer(r":{3,}", body):
         longest = max(longest, len(match.group(0)))
     return ":" * (longest + 1)
@@ -400,6 +463,38 @@ def expand_code_fences(text: str, sites: LessonSites) -> str:
     return CODE_FENCE.sub(repl, text)
 
 
+def expand_expressions(text: str, sites: LessonSites) -> str:
+    """Fill hpc-intro expressions that sit outside a code fence."""
+
+    def repl(match: re.Match) -> str:
+        parts = []
+        for site_id in sites.ids:
+            filled = apply_hpc_expressions(match.group(0), sites.configs[site_id])
+            parts.append((LABELS[site_id], filled + "\n"))
+        return group_tab(parts).rstrip("\n")
+
+    for pattern in (HOME_PASTE, QOS_LINE, SLURM_SEP, ACCOUNT_LINE):
+        text = pattern.sub(repl, text)
+    return text
+
+
+def expand_mustache(text: str, sites: LessonSites) -> str:
+    def repl(match: re.Match) -> str:
+        path = match.group(1)
+        values = []
+        for site_id in sites.ids:
+            value = lookup(sites.configs[site_id], path)
+            if value is None:
+                raise ExpandError(f"missing config {path} for {site_id}")
+            values.append((LABELS[site_id], f"{value}"))
+        if len({item[1] for item in values}) == 1:
+            return values[0][1]
+        rendered = [(label, f"`{value}`\n") for label, value in values]
+        return "\n\n" + group_tab(rendered).rstrip("\n") + "\n\n"
+
+    return MUSTACHE.sub(repl, text)
+
+
 def expand_inline(text: str, sites: LessonSites) -> str:
     def repl(match: re.Match) -> str:
         path = match.group(1)
@@ -421,6 +516,8 @@ def expand_text(text: str, lesson: Path) -> str:
     text = expand_r_chunks(text, sites)
     text = expand_site_divs(text, sites)
     text = expand_code_fences(text, sites)
+    text = expand_expressions(text, sites)
+    text = expand_mustache(text, sites)
     text = expand_inline(text, sites)
     leftover = INLINE_CONFIG.search(text) or re.search(r"```\{r", text) or SITE_DIV.search(text)
     if leftover:

@@ -3,6 +3,7 @@
 snippets: SURF_Course_slurm
 local:
   prompt: "[you@laptop:~]$"
+  user: "you"
   shebang: "#!/bin/bash"
 remote:
   name: "course cluster"
@@ -13,6 +14,11 @@ remote:
   user: "YOUR_LOGIN"
   prompt: "[YOUR_LOGIN@LOGIN ~]$"
   shebang: "#!/bin/bash"
+  bash_shebang: "#!/bin/bash"
+  home: "/home"
+  homedir: "/home"
+  hosttype: "x86_64"
+  location: "MANAGER"
   stack_init: "module load 2025"
   fs:
     home: "/home"
@@ -35,6 +41,7 @@ sched:
     name: "--job-name"
     time: "--time"
     queue: "--partition"
+    partition: "--partition=PARTITION"
     nodes: "--nodes"
     tasks: "--ntasks"
     threads: "--cpus-per-task"

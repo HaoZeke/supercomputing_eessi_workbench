@@ -164,6 +164,37 @@ class ExpandTests(unittest.TestCase):
         self.assertIn("### Snellius", out)
         self.assertNotIn("```{r", out)
 
+    def test_hpc_intro_inline_expressions(self):
+        for site, home, user, shebang in (
+            ("HPCC_MagicCastle_slurm", "/home", "yourUsername", "#!/bin/bash"),
+            ("SURF_Snellius_slurm", "/home", "YOUR_LOGIN", "#!/bin/bash"),
+            ("SURF_Course_slurm", "/scratch", "YOUR_LOGIN", "#!/bin/bash"),
+        ):
+            path = self.root / "sites" / site / "_config_options.yml"
+            path.write_text(
+                path.read_text(encoding="utf-8")
+                + f"\nremote:\n  fs:\n    home: {home}\n  user: {user}\n  shebang: '{shebang}'\n"
+                + "sched:\n  name: Slurm\n  comment: '#SBATCH'\n",
+                encoding="utf-8",
+            )
+        text = '`r paste(config$remote$fs$home,config$remote$user,sep="/")`\n'
+        out = ex.expand_text(text, self.lesson)
+        self.assertIn("/home/YOUR_LOGIN", out)
+        self.assertIn("/scratch/YOUR_LOGIN", out)
+        self.assertNotIn("paste(", out)
+        script = (
+            '`r if (!is.null(config$sched$account)) {paste0(config$remote$shebang, "\\n", '
+            'config$sched$comment, " ", config$sched$flag$account, "=", config$sched$account)} '
+            "else {paste0(config$remote$shebang)}`\n"
+        )
+        out = ex.expand_text(script, self.lesson)
+        self.assertIn("#!/bin/bash", out)
+        self.assertNotIn("paste0", out)
+        sep = '`r if(config$sched$name == "Slurm") {print(" ")} else {print("=")}`'
+        out = ex.expand_text(sep, self.lesson)
+        self.assertIn(" ", out)
+        self.assertNotIn("print(", out)
+
     def test_course_todo_mentions_both_sources(self):
         out = ex.expand_text("::: sites partition-request\n:::\n", self.lesson)
         self.assertIn("TODO(Rohit)", out)
