@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+title: Supercomputing with EESSI
+message: >-
+  Please cite this lesson using the information in this file
+  when you refer to it in publications, and/or if you
+  re-use, adapt, or expand on the content in your own
+  training material.
+type: dataset
+authors:
+  - given-names: Rohit
+    family-names: Goswami
+    orcid: https://orcid.org/0000-0002-2393-8056
+    email: rgoswami@ieee.org
+repository-code: "https://github.com/HaoZeke/supercomputing_eessi_workbench"
+abstract: >-
+  A one-day Carpentries lesson on shared supercomputers, the EESSI software
+  stack, Slurm, data movement, many-task tools, and the first performance checks.
+keywords:
+  - lesson
+  - supercomputing
+  - eessi
+  - slurm
+license: CC-BY-4.0

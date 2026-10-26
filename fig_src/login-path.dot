@@ -1,0 +1,13 @@
+digraph login {
+  rankdir=LR;
+  graph [fontname="Helvetica"];
+  node [shape=box, style="rounded,filled", fillcolor="#f4f1ea", fontname="Helvetica"];
+  edge [fontname="Helvetica"];
+  laptop [label="laptop"];
+  login [label="login node"];
+  sched [label="scheduler"];
+  compute [label="compute node"];
+  laptop -> login [label="ssh"];
+  login -> sched [label="sbatch"];
+  sched -> compute [label="when resources are free"];
+}

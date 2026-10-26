@@ -1,0 +1,15 @@
+digraph stack {
+  rankdir=LR;
+  graph [fontname="Helvetica"];
+  node [shape=box, style="rounded,filled", fillcolor="#f4f1ea", fontname="Helvetica"];
+  edge [fontname="Helvetica"];
+  script [label="your script"];
+  cvmfs [label="CVMFS"];
+  eessi [label="EESSI"];
+  mod [label="module"];
+  program [label="the program"];
+  script -> cvmfs;
+  cvmfs -> eessi;
+  eessi -> mod;
+  mod -> program;
+}

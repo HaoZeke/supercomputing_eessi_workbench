@@ -1,0 +1,19 @@
+login-path	laptop
+login-path	login node
+login-path	scheduler
+login-path	compute node
+shared-stack	your script
+shared-stack	CVMFS
+shared-stack	EESSI
+shared-stack	module
+shared-stack	the program
+filesystems	home
+filesystems	scratch-shared
+filesystems	scratch-node
+filesystems	project
+many-tasks	one allocation
+many-tasks	pilot
+many-tasks	many tasks
+roofline	bandwidth roof
+roofline	peak roof
+roofline	your code

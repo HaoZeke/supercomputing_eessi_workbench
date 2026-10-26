@@ -1,0 +1,13 @@
+digraph files {
+  rankdir=LR;
+  graph [fontname="Helvetica"];
+  node [shape=box, style="rounded,filled", fillcolor="#f4f1ea", fontname="Helvetica"];
+  edge [fontname="Helvetica"];
+  home [label="home"];
+  shared [label="scratch-shared"];
+  scratch [label="scratch-node"];
+  project [label="project"];
+  home -> shared [label="large job output"];
+  shared -> scratch [label="hottest temporary files"];
+  home -> project [label="files the group shares"];
+}

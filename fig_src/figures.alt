@@ -1,0 +1,5 @@
+login-path.svg	How a job moves. The nodes drawn are laptop, login node, scheduler, and compute node.
+shared-stack.svg	Where a program comes from. The nodes drawn are your script, CVMFS, EESSI, module, and the program.
+filesystems.svg	Where files live on Snellius. The nodes drawn are home, scratch-shared, scratch-node, and project.
+many-tasks.svg	Many tasks inside one Slurm job. The nodes drawn are one allocation, pilot, and many tasks.
+roofline.svg	Two bounds for a program. The nodes drawn are bandwidth roof, peak roof, and your code.

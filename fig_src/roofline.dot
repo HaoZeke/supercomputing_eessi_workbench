@@ -1,0 +1,11 @@
+digraph roof {
+  rankdir=LR;
+  graph [fontname="Helvetica"];
+  node [shape=box, style="rounded,filled", fillcolor="#f4f1ea", fontname="Helvetica"];
+  edge [fontname="Helvetica"];
+  band [label="bandwidth roof"];
+  peak [label="peak roof"];
+  code [label="your code"];
+  code -> band [label="few flops per byte moved"];
+  code -> peak [label="many flops per byte moved"];
+}

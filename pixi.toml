@@ -1,0 +1,47 @@
+[workspace]
+authors = ["Rohit Goswami <rgoswami@ieee.org>"]
+channels = ["conda-forge"]
+name = "supercomputing_eessi_workbench"
+platforms = ["linux-64", "osx-64", "osx-arm64"]
+version = "0.1.0"
+
+[dependencies]
+git = ">=2.28"
+graphviz = ">=12,<14"
+ninja = ">=1.12"
+pandoc = ">=3.6,<4"
+pillow = ">=10"
+python = ">=3.12,<3.13"
+r-base = ">=4.4,<4.6"
+r-pegboard = ">=0.7.9,<0.8"
+r-sandpaper = ">=0.18.5,<0.19"
+r-varnish = ">=1.0.9,<2"
+tectonic = ">=0.15"
+uv = ">=0.5"
+
+[tasks]
+build = "bash build.sh"
+lint = { cmd = "bash scripts/gate.sh --full", depends-on = ["build"] }
+gate = { cmd = "bash scripts/gate.sh", depends-on = ["build"] }
+slides = { cmd = "bash scripts/slides.sh", depends-on = ["build"] }
+site = { cmd = "bash scripts/site.sh", depends-on = ["build", "slides"] }
+preview = { cmd = "bash scripts/preview.sh", depends-on = ["build"] }
+check = "bash scripts/check-all.sh"
+check-exercises = "bash scripts/check-exercises.sh"
+check-links = "bash scripts/check-links.sh"
+check-timing = "uv run --script scripts/check-timing.py"
+check-drift = "bash scripts/check-drift.sh"
+check-counts = "bash scripts/check-counts.sh"
+check-episode-three = "uv run --script scripts/check-episode-three.py"
+check-generated = "bash scripts/check-generated.sh"
+check-figures = "bash scripts/check-figures.sh"
+check-slides = "bash scripts/check-slides.sh"
+check-tables = "bash scripts/check-tables.sh"
+check-alt = "uv run --script scripts/check-alt.py"
+check-matrix = "uv run --script scripts/check-matrix.py"
+check-primitives = "uv run --script scripts/check-primitives.py"
+check-output-blocks = "uv run --script scripts/check-output-blocks.py"
+class-before = "bash scripts/class.sh before"
+serve = "bash scripts/site.sh serve"
+class-changed = "bash scripts/class.sh changed"
+class-undo = "bash scripts/class.sh undo"

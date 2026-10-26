@@ -1,0 +1,40 @@
+# sandpaper
+episodes/*html
+site/*
+!site/README.md
+preview/
+
+# class snapshots
+.class-snapshots/
+class-work/*
+!class-work/.gitkeep
+
+# generated slide builds
+slides/*.pdf
+slides/*.tex
+!slides/rgcourse.tex
+!slides/preamble.tex
+slides/*.aux
+slides/*.log
+slides/*.nav
+slides/*.out
+slides/*.toc
+slides/*.fls
+slides/*.fdb_latexmk
+slides/*.synctex.gz
+slides/*.xdv
+
+# R
+.Rhistory
+.Rapp.history
+.RData
+.Ruserdata
+.Rproj.user/
+*_cache/
+/cache/
+.httr-oauth
+.Renviron
+
+# pixi
+.pixi/*
+!.pixi/config.toml

@@ -1,0 +1,17 @@
+# Prose gate for generated lesson pages.
+# errors and voice warnings must be zero. notes are reported by lint only.
+
+[scope]
+pages = ["index.md", "episodes", "learners", "instructors", "profiles"]
+
+[voice]
+pages = ["index.md", "episodes", "learners"]
+phrases = ["the user", "one must", "we will", "simply", "obviously", "easy to"]
+
+[forbidden]
+words = ["landed", "ships", "settle", "hypothetical"]
+phrases = ["blocked on"]
+chars = ["—", "–"]
+
+[notes]
+max_paragraph_words = 160

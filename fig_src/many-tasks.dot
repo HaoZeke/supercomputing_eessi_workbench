@@ -1,0 +1,11 @@
+digraph tasks {
+  rankdir=LR;
+  graph [fontname="Helvetica"];
+  node [shape=box, style="rounded,filled", fillcolor="#f4f1ea", fontname="Helvetica"];
+  edge [fontname="Helvetica"];
+  alloc [label="one allocation"];
+  pilot [label="pilot"];
+  tasks [label="many tasks"];
+  alloc -> pilot [label="one Slurm job"];
+  pilot -> tasks [label="starts the next free task"];
+}
