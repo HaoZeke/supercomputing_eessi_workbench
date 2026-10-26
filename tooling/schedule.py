@@ -106,7 +106,17 @@ def front_matter(path: Path) -> dict[str, str]:
     return data
 
 
-def lesson_rows(cut_first: dict) -> list[dict]:
+def session_slug_order(sessions: list) -> list[str]:
+    order = []
+    for session in sessions:
+        for part in str(session.get("slugs", "")).split(","):
+            slug = part.strip()
+            if slug and slug not in order:
+                order.append(slug)
+    return order
+
+
+def lesson_rows(cut_first: dict, slug_order: list[str] | None = None) -> list[dict]:
     rows = []
     for config in sorted((ROOT / "lessons").glob("*/config.yaml")):
         slug = config.parent.name
@@ -131,7 +141,17 @@ def lesson_rows(cut_first: dict) -> list[dict]:
                 }
             )
         rows.append({"slug": slug, "title": title, "episodes": episodes})
-    return rows
+    if slug_order is None:
+        return rows
+    by_slug = {row["slug"]: row for row in rows}
+    missing = [slug for slug in slug_order if slug not in by_slug]
+    extra = [row["slug"] for row in rows if row["slug"] not in slug_order]
+    if missing or extra:
+        raise SystemExit(
+            "lesson list does not match schedule.yaml sessions: "
+            + ", ".join(missing + extra)
+        )
+    return [by_slug[slug] for slug in slug_order]
 
 
 def link_text(text: str) -> str:
@@ -258,9 +278,9 @@ def redirect_page(target: str, label: str) -> str:
 def render(out: Path) -> None:
     data = parse_yaml((ROOT / "schedule.yaml").read_text(encoding="utf-8"))
     cut = data.get("cut_first") or {}
-    lessons = lesson_rows(cut)
-    by_slug = {row["slug"]: row for row in lessons}
     sessions = data["sessions"]
+    lessons = lesson_rows(cut, session_slug_order(sessions))
+    by_slug = {row["slug"]: row for row in lessons}
 
     session_rows = []
     for session in sessions:
