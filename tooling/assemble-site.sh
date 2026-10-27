@@ -19,6 +19,9 @@ for lesson in "$ROOT"/lessons/*; do
   docs="$(bash "$ROOT/tooling/build-lesson.sh" "$lesson")"
   mkdir -p "$OUT/$slug"
   cp -a "$docs/." "$OUT/$slug/"
+  if [[ -f "$docs/assets/images/orcid_icon.png" ]]; then
+    install -Dm644 "$docs/assets/images/orcid_icon.png" "$OUT/assets/images/orcid_icon.png"
+  fi
   rm -rf "$docs"
   found=$((found + 1))
 done
