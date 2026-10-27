@@ -2,6 +2,8 @@
 
 Seven Carpentries Workbench lessons in this repository, published as one site at <https://supersurf.rgoswami.me/>. A lesson lives in `lessons/<slug>/` and is served at `https://supersurf.rgoswami.me/<slug>/`.
 
+The four-hour Introduction to HPC route is Part I. Its elapsed timetable includes a break, exercise checkpoints and a closing margin; the instructor page gives exact commands, expected results and matching PDF downloads. The full episode estimates describe reference material beyond the selected route.
+
 The landing page, the setup page, and the instructor page are rendered from `schedule.yaml` and `site_src/` by `tooling/schedule.py`. Shared site tabs (Snellius, the course cluster, Magic Castle) live in `sites/`.
 
 ```sh

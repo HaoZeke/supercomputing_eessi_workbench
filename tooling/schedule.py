@@ -275,8 +275,43 @@ def redirect_page(target: str, label: str) -> str:
 """
 
 
+def part_one_table(data: dict) -> str:
+    rows = []
+    end = 0
+    for block in data["part_one"]:
+        first, last = block["elapsed"].split("-")
+        start_hour, start_minute = map(int, first.split(":"))
+        end_hour, end_minute = map(int, last.split(":"))
+        start = 60 * start_hour + start_minute
+        finish = 60 * end_hour + end_minute
+        minutes = int(block["minutes"])
+        if start != end or finish - start != minutes or minutes <= 0:
+            raise ValueError("Part I blocks must be contiguous and match their durations")
+        end = finish
+        rows.append(
+            "<tr>"
+            f"<td>{html.escape(block['elapsed'])}</td>"
+            f"<td>{minutes}</td>"
+            f"<td>{html.escape(block['topic'])}</td>"
+            "</tr>"
+        )
+    if end != 240:
+        raise ValueError("Part I must include exactly 240 minutes")
+    return (
+        '<h2 id="part-one">Part I: four-hour Introduction to HPC</h2>'
+        '<p>Elapsed times include the break. Start with this route, rather than '
+        'the complete episode estimates below. The <a href="/instructors.html">'
+        'instructor guide</a> names slide pages, commands, answers and stopping points.</p>'
+        '<table><thead><tr><th>Elapsed</th><th>Minutes</th><th>Block</th></tr></thead>'
+        '<tbody>' + "".join(rows) + '</tbody></table>'
+        '<p><a href="/downloads/intro-teacher-workbook.pdf">Teacher workbook (PDF)</a>'
+        ' | <a href="/downloads/introduction-slides.zip">Matching slide pack</a></p>'
+    )
+
+
 def render(out: Path) -> None:
     data = parse_yaml((ROOT / "schedule.yaml").read_text(encoding="utf-8"))
+    part_one = part_one_table(data)
     cut = data.get("cut_first") or {}
     sessions = data["sessions"]
     lessons = lesson_rows(cut, session_slug_order(sessions))
@@ -329,14 +364,16 @@ def render(out: Path) -> None:
         f"""
 <p>Seven lessons, one site. Each lesson is a Carpentries Workbench lesson at <code>https://supersurf.rgoswami.me/&lt;slug&gt;/</code>. The workshop is three sessions of four hours. A lesson keeps every episode. The schedule below is what a session teaches, and the rows marked "cut first" are the ones to drop when the clock runs out.</p>
 <p>Commands that differ by machine are in tabs: Snellius, the course cluster, and a generic Magic Castle cluster with EESSI. The course cluster is a SURF Research Cloud workspace, and its tab requests <code>--partition=rome</code>. See the <a href="/setup.html">setup page</a>.</p>
-<h2>Workshop schedule</h2>
+{part_one}
+<h2>All three sessions</h2>
 <table>
 <thead><tr><th>Session</th><th>Hours</th><th>Focus</th><th>Lessons</th></tr></thead>
 <tbody>
 {''.join(session_rows)}
 </tbody>
 </table>
-<h2>Lessons</h2>
+<h2>Complete lesson episode estimates</h2>
+<p>These estimates cover each entire lesson. Part I uses the selected route above.</p>
 {''.join(episode_sections)}
 <h2>Who the day is for</h2>
 {profiles}
@@ -360,6 +397,7 @@ def render(out: Path) -> None:
         ),
         encoding="utf-8",
     )
+    shutil.copytree(ROOT / "site_assets" / "downloads", out / "downloads", dirs_exist_ok=True)
     shutil.copyfile(ROOT / "site_assets" / "assets" / "logo.svg", out / "logo.svg")
 
     for name, target in (data.get("redirects") or {}).items():

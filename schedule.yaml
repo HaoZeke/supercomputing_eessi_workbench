@@ -15,6 +15,41 @@ sessions:
     focus: Hybrid jobs and performance
     slugs: hybrid-jobs, performance
 
+part_one:
+  - elapsed: 00:00-00:10
+    minutes: 10
+    topic: Purpose and destination
+  - elapsed: 00:10-00:35
+    minutes: 25
+    topic: Access and shell
+  - elapsed: 00:35-00:55
+    minutes: 20
+    topic: Nodes, processes and cores
+  - elapsed: 00:55-01:25
+    minutes: 30
+    topic: EESSI and modules
+  - elapsed: 01:25-01:55
+    minutes: 30
+    topic: First batch job
+  - elapsed: 01:55-02:10
+    minutes: 15
+    topic: Break
+  - elapsed: 02:10-02:40
+    minutes: 30
+    topic: Resource requests and accounting
+  - elapsed: 02:40-03:20
+    minutes: 40
+    topic: Python and OpenMP
+  - elapsed: 03:20-03:40
+    minutes: 20
+    topic: Independent work and arrays
+  - elapsed: 03:40-03:50
+    minutes: 10
+    topic: Keep the result
+  - elapsed: 03:50-04:00
+    minutes: 10
+    topic: Exit check and recovery margin
+
 cut_first:
   data-movement: several-streams.md
   many-tasks: other-tools.md
