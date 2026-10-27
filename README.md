@@ -7,7 +7,8 @@ The four-hour Introduction to HPC route is Part I. Its elapsed timetable include
 The landing page, the setup page, and the instructor page are rendered from `schedule.yaml` and `site_src/` by `tooling/schedule.py`. Shared site tabs (Snellius, the course cluster, Magic Castle) live in `sites/`.
 
 ```sh
-bash tooling/assemble-site.sh
+pixi run site
+pixi run check-site
 ```
 
 That builds every lesson and writes the combined site to `site/docs/`, including the CNAME `supersurf.rgoswami.me`.

@@ -22,6 +22,7 @@ uv = ">=0.5"
 [tasks]
 build = "bash tooling/assemble-site.sh"
 site = "bash tooling/assemble-site.sh"
+check-site = "python tooling/test_expand_sites.py && python tooling/check_sites.py && python tooling/check_links.py site/docs"
 # The tasks below belong to the retired one-day Org export.
 lint = { cmd = "bash scripts/gate.sh --full" }
 gate = { cmd = "bash scripts/gate.sh" }
