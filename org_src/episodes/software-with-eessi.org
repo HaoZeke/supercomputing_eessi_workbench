@@ -3,8 +3,8 @@
 #+begin_export markdown
 ---
 title: "Software from a shared stack"
-teaching: 15
-exercises: 15
+teaching: 30
+exercises: 20
 ---
 #+end_export
 

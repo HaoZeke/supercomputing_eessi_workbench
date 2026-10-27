@@ -5,7 +5,7 @@
 #SBATCH --time=00:10:00
 #SBATCH --output=pi-%j.out
 
-# The serial pi program needs one CPU in the classroom partition.
+# Course-cluster nodes have two cores. rome and thin_course name the same nodes.
 module purge
 module load 2025
 export SAMPLE_COUNT=1000

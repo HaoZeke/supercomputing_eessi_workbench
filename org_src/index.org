@@ -6,9 +6,9 @@ site: sandpaper::sandpaper_site
 ---
 #+end_export
 
-This lesson is a four-hour introduction to a shared supercomputer. You will log in, load software from the EESSI stack, submit Slurm jobs, move data without drowning the file system, run many small tasks, and take a first look at timing and scaling.
+This lesson is a one-day introduction to a shared supercomputer. You will log in, load software from the EESSI stack, submit Slurm jobs, move data without drowning the file system, run many small tasks, and take a first look at timing and scaling.
 
-This lesson has six episodes with 215 minutes of teaching and exercises, a 15-minute break and a 10-minute close. The slide decks for the SURF course sit beside it. The instructor notes give the running order, deck map and checkpoints. Keep this lesson open beside the course portal; this website does not start a cluster session.
+This lesson has six episodes. Each one is about half an hour of teaching plus a short exercise. The slide decks for the SURF course sit beside it. The instructor notes say which deck matches which episode.
 
 #+begin_prereq
 
