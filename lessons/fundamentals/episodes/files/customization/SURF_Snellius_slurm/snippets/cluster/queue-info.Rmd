@@ -1,0 +1,17 @@
+The live command is `sinfo`. The rows below are the system-details table from the fundamentals deck (node counts and hardware), not a live `STATE` column.
+
+```output
+PARTITION   NODES  CORES  MEMORY     CPU                        GPUS  SBU/hour  SMALLEST
+rome          521    128  256 GB     AMD Rome 7H12 2.6 GHz         0       128  1/8
+fat_rome       72    128  1,024 GB   AMD Rome 7H12 2.6 GHz         0       192  1/8
+himem_4tb       2    128  4,096 GB   AMD Rome 7H12 2.6 GHz         0       256  1/8
+himem_8tb       2    128  8,192 GB   AMD Rome 7H12 2.6 GHz         0       384  1/8
+genoa         737    192  384 GB     AMD Genoa 9654 2.4 GHz        0       192  1/8
+fat_genoa      48    192  1,536 GB   AMD Genoa 9654 2.4 GHz        0       288  1/8
+gpu_a100       63     72  512 GB     Intel Xeon 8360Y 2.5 GHz      4       512  1/4
+gpu_h100       88     64  768 GB     AMD EPYC 9334 2.7 GHz         4       768  1/4
+staging        10     16  256 GB     AMD EPYC 7F32 3.2 GHz         0        32  1/32
+login           3                                 login nodes, not for heavy tasks
+```
+
+`gpu_a100` has 4 NVIDIA A100 40 GB GPUs per node. `gpu_h100` has 4 NVIDIA H100 (SXM5) 94 GB GPUs per node. Login-node hardware is not one fixed row.

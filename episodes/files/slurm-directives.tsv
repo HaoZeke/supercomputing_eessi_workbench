@@ -1,7 +1,0 @@
-directive	meaning	example	where
---job-name	a short name in the queue	pi-one	any Slurm cluster
---partition	which group of nodes	rome	Snellius and the course cluster
---cpus-per-task	cores for the one task	16	Snellius rome slice
---time	wall clock limit	00:15:00	any Slurm cluster
---output	file for the job text	pi-%j.out	any Slurm cluster
---array	one index per task	0-3	any Slurm cluster

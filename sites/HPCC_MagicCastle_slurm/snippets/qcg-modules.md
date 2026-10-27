@@ -1,0 +1,1 @@
+QCG-PilotJob is not in EESSI 2025.06. `module spider QCG-PilotJob` does not find it. Install it in a virtual environment on this cluster if you need the later episodes, or use the course cluster's site module.

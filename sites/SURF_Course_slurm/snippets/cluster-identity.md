@@ -1,0 +1,1 @@
+The course cluster is a SURF Research Cloud workspace. The login address is the one in the welcome note. There is one login node. Jobs use the `rome` partition. `module load 2025` loads EESSI 2025.06. There is no project budget. `sacct` still reports core-seconds in `CPUTimeRAW`.

@@ -1,10 +1,9 @@
 name: "Bot: Remove Temporary PR Branch"
 
+# Stock Workbench workflows expect one lesson at the repository root.
+# lessons/* are built by "01 Maintain: Build and Deploy Site".
 on:
-  workflow_run:
-    workflows: ["Bot: Send Close Pull Request Signal"]
-    types:
-      - completed
+  workflow_dispatch:
 
 jobs:
   delete:

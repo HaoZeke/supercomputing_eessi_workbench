@@ -1,0 +1,49 @@
+# Snellius, the Dutch national supercomputer at SURF.
+snippets: SURF_Snellius_slurm
+local:
+  prompt: "[you@laptop:~]$"
+  user: "you"
+  shebang: "#!/bin/bash"
+remote:
+  name: "Snellius"
+  login: "snellius.surf.nl"
+  portal: "https://portal.cua.surf.nl/"
+  host: "int4"
+  node: "tcn1"
+  user: "YOUR_LOGIN"
+  prompt: "[YOUR_LOGIN@int4 ~]$"
+  shebang: "#!/bin/bash"
+  bash_shebang: "#!/bin/bash"
+  home: "/home"
+  homedir: "/home"
+  hosttype: "x86_64"
+  location: "snellius.surf.nl"
+  stack_init: "module load 2025"
+  fs:
+    home: "/home"
+    scratch: "/scratch-shared"
+    project: "/projects"
+    archive: "/archive"
+  modules:
+    python: "Python/3.13.5-GCCcore-14.3.0"
+    stack: "2025"
+sched:
+  name: "Slurm"
+  submit:
+    name: "sbatch"
+    options: ""
+  queue:
+    testing: "rome"
+  status: "squeue"
+  flag:
+    user: "-u $USER"
+    name: "--job-name"
+    time: "--time"
+    queue: "--partition"
+    partition: "--partition=rome"
+    nodes: "--nodes"
+    tasks: "--ntasks"
+    threads: "--cpus-per-task"
+  del: "scancel"
+  comment: "#SBATCH"
+  hist: "sacct"

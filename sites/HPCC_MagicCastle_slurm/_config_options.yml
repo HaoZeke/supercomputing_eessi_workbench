@@ -1,0 +1,52 @@
+# Generic Magic Castle cluster with the EESSI stack.
+# Values follow carpentries-incubator/hpc-intro HPCC_MagicCastle_slurm.
+snippets: HPCC_MagicCastle_slurm
+local:
+  prompt: "[you@laptop:~]$"
+  user: "you"
+  shebang: "#!/bin/bash"
+url: ""
+baseurl: ""
+remote:
+  name: "HPC Carpentry Cloud Cluster"
+  login: "cluster.hpc-carpentry.org"
+  portal: "https://mokey.cluster.hpc-carpentry.org"
+  host: "login1"
+  node: "smnode1"
+  user: "yourUsername"
+  prompt: "[yourUsername@login1 ~]$"
+  shebang: "#!/bin/bash"
+  bash_shebang: "#!/bin/bash"
+  home: "/home"
+  homedir: "/home"
+  hosttype: "x86_64"
+  location: "cluster.hpc-carpentry.org"
+  stack_init: "source /cvmfs/software.eessi.io/versions/2025.06/init/lmod/bash"
+  fs:
+    home: "/home"
+    scratch: "/scratch"
+    project: "/project"
+    archive: ""
+  modules:
+    python: "Python"
+    stack: "EESSI/2025.06"
+sched:
+  name: "Slurm"
+  submit:
+    name: "sbatch"
+    options: ""
+  queue:
+    testing: "cpubase_bycore_b1"
+  status: "squeue"
+  flag:
+    user: "-u yourUsername"
+    name: "--job-name"
+    time: "--time"
+    queue: "--partition"
+    partition: "--partition=cpubase_bycore_b1"
+    nodes: "--nodes"
+    tasks: "--ntasks"
+    threads: "--cpus-per-task"
+  del: "scancel"
+  comment: "#SBATCH"
+  hist: "sacct"

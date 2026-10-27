@@ -1,0 +1,1 @@
+The course cluster is a SURF Research Cloud workspace. The CPU partition is `rome`. Run `sinfo` on the login node for the live rows. This tab does not copy the Snellius hardware table.

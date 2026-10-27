@@ -1,0 +1,6 @@
+The course cluster is a SURF Research Cloud workspace. There is no project budget. `accinfo` is not installed, and system billing units are not charged here. `sacct` still reports core-seconds in `CPUTimeRAW`. The partition column is `rome`. The row below shows the columns, not a captured job.
+
+```output
+JobID  JobName    Partition  State      CPUTimeRAW
+7      file.sh    rome       COMPLETED  (core-seconds)
+```

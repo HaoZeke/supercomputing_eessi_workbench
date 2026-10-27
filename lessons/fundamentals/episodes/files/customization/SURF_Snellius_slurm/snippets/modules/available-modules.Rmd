@@ -1,0 +1,10 @@
+```bash
+`r config$remote$prompt` module load 2025
+`r config$remote$prompt` module avail Python
+```
+
+```output
+Python/3.13.5-GCCcore-14.3.0
+```
+
+`module avail` after `module load 2025` is a long list. The line above is the Python build this lesson loads. Use `module spider Python` when the name is missing from `module avail`.

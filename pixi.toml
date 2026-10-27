@@ -20,12 +20,13 @@ tectonic = ">=0.15"
 uv = ">=0.5"
 
 [tasks]
-build = "bash build.sh"
-lint = { cmd = "bash scripts/gate.sh --full", depends-on = ["build"] }
-gate = { cmd = "bash scripts/gate.sh", depends-on = ["build"] }
-slides = { cmd = "bash scripts/slides.sh", depends-on = ["build"] }
-site = { cmd = "bash scripts/site.sh", depends-on = ["build", "slides"] }
-preview = { cmd = "bash scripts/preview.sh", depends-on = ["build"] }
+build = "bash tooling/assemble-site.sh"
+site = "bash tooling/assemble-site.sh"
+# The tasks below belong to the retired one-day Org export.
+lint = { cmd = "bash scripts/gate.sh --full" }
+gate = { cmd = "bash scripts/gate.sh" }
+slides = { cmd = "bash scripts/slides.sh" }
+preview = { cmd = "bash scripts/preview.sh" }
 check = "bash scripts/check-all.sh"
 check-exercises = "bash scripts/check-exercises.sh"
 check-links = "bash scripts/check-links.sh"

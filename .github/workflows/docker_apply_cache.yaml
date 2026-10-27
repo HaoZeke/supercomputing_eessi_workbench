@@ -1,19 +1,10 @@
 name: "03 Maintain: Apply Package Cache"
 description: "Generate the package cache for the lesson after a pull request has been merged or via manual trigger, and cache in S3 or GitHub"
+# Stock Workbench workflows expect one lesson at the repository root.
+# lessons/* are built by "01 Maintain: Build and Deploy Site".
 on:
   workflow_dispatch:
-    inputs:
-      name:
-        description: 'Who triggered this build?'
-        required: true
-        default: 'Maintainer (via GitHub)'
-  pull_request:
-    types:
-      - closed
-    branches:
-      - main
 
-# queue cache runs
 concurrency:
   group: docker-apply-cache
   cancel-in-progress: false

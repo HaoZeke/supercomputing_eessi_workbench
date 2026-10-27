@@ -1,29 +1,9 @@
 name: "02 Maintain: Check for Updated Packages"
 description: "Check for updated R packages and create a pull request to update the lesson's renv lockfile and package cache"
+# Stock Workbench workflows expect one lesson at the repository root.
+# lessons/* are built by "01 Maintain: Build and Deploy Site".
 on:
-  schedule:
-    - cron: '0 0 * * 2'
   workflow_dispatch:
-    inputs:
-      name:
-        description: 'Who triggered this build?'
-        required: true
-        default: 'Maintainer (via GitHub)'
-      force-renv-init:
-        description: 'Force full lockfile update?'
-        required: false
-        default: false
-        type: boolean
-      update-packages:
-        description: 'Install any package updates?'
-        required: false
-        default: true
-        type: boolean
-      generate-cache:
-        description: 'Generate separate package cache?'
-        required: false
-        default: false
-        type: boolean
 
 env:
   LOCKFILE_CACHE_GEN: ${{ vars.LOCKFILE_CACHE_GEN || github.event.inputs.generate-cache || 'false' }}

@@ -1,0 +1,9 @@
+`sacct` on Snellius names the partition and the account. The job ids below show the shape of the table. They are not a transcript from one login.
+
+```output
+JobID  JobName   Partition  Account       AllocCPUS  State      ExitCode
+7      file.sh   rome       your_account  16         COMPLETED  0:0
+8      example   rome       your_account  16         COMPLETED  0:0
+```
+
+Billing in system billing units is a separate table. A `rome` node is 128 SBU per node-hour. See the accounting episode.

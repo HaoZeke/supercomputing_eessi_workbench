@@ -1,0 +1,5 @@
+site/*
+!site/README.md
+.Rhistory
+.RData
+*_cache/

@@ -1,11 +1,9 @@
 name: "Pull Request Preflight Check"
 
+# Stock Workbench workflows expect one lesson at the repository root.
+# lessons/* are built by "01 Maintain: Build and Deploy Site".
 on:
-  pull_request_target:
-    branches:
-      ["main"]
-    types:
-      ["opened", "synchronize", "reopened"]
+  workflow_dispatch:
 
 jobs:
   test-pr:

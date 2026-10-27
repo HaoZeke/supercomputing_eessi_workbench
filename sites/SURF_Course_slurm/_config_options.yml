@@ -1,0 +1,51 @@
+# Course cluster: a SURF Research Cloud workspace.
+# The welcome note has the login address, written MANAGER.
+# CPU jobs use the rome partition.
+snippets: SURF_Course_slurm
+local:
+  prompt: "[you@laptop:~]$"
+  user: "you"
+  shebang: "#!/bin/bash"
+remote:
+  name: "SURF Research Cloud workspace"
+  login: "MANAGER"
+  portal: ""
+  host: "LOGIN"
+  node: "NODE"
+  user: "YOUR_LOGIN"
+  prompt: "[YOUR_LOGIN@LOGIN ~]$"
+  shebang: "#!/bin/bash"
+  bash_shebang: "#!/bin/bash"
+  home: "/home"
+  homedir: "/home"
+  hosttype: "x86_64"
+  location: "MANAGER"
+  stack_init: "module load 2025"
+  fs:
+    home: "/home"
+    scratch: "/scratch"
+    project: "/project"
+    archive: ""
+  modules:
+    python: "Python/3.13.5-GCCcore-14.3.0"
+    stack: "2025"
+sched:
+  name: "Slurm"
+  submit:
+    name: "sbatch"
+    options: ""
+  queue:
+    testing: "rome"
+  status: "squeue"
+  flag:
+    user: "-u $USER"
+    name: "--job-name"
+    time: "--time"
+    queue: "--partition"
+    partition: "--partition=rome"
+    nodes: "--nodes"
+    tasks: "--ntasks"
+    threads: "--cpus-per-task"
+  del: "scancel"
+  comment: "#SBATCH"
+  hist: "sacct"
