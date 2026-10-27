@@ -3,7 +3,7 @@
 #+begin_export markdown
 ---
 title: "Files and moving data"
-teaching: 30
+teaching: 15
 exercises: 20
 ---
 #+end_export

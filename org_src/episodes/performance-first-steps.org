@@ -3,7 +3,7 @@
 #+begin_export markdown
 ---
 title: "Timing and scaling"
-teaching: 25
+teaching: 15
 exercises: 20
 ---
 #+end_export

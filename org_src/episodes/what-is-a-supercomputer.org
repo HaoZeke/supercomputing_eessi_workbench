@@ -3,7 +3,7 @@
 #+begin_export markdown
 ---
 title: "What a supercomputer is"
-teaching: 30
+teaching: 20
 exercises: 15
 ---
 #+end_export

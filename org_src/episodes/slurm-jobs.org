@@ -3,7 +3,7 @@
 #+begin_export markdown
 ---
 title: "Submitting a job"
-teaching: 35
+teaching: 20
 exercises: 25
 ---
 #+end_export
@@ -49,7 +49,7 @@ python3 pi_one.py
 
 On Snellius the =rome= partition gives memory with the cores, and the smallest slice is 16 cores. A request for 1 core is rounded up to 16, and the project is charged for 16. Asking for 16 in the script matches what you will be charged.
 
-On the course cluster the same nodes answer to =rome= and to =thin_course=, and a node has two cores. Ask for one core there. =episodes/files/pi-course.sh= is that script: =--partition=thin_course= and =--cpus-per-task=1=.
+On the course cluster, =rome= and =thin_course= are CPU partition aliases. Inspect =sinfo= for the available nodes and ask for one core for this serial program. =episodes/files/pi-course.sh= is that script: =--partition=thin_course= and =--cpus-per-task=1=.
 
 Submit from the directory that contains =pi_one.py=:
 

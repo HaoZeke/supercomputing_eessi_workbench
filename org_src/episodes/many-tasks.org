@@ -3,7 +3,7 @@
 #+begin_export markdown
 ---
 title: "Many small tasks"
-teaching: 30
+teaching: 15
 exercises: 20
 ---
 #+end_export
@@ -44,7 +44,8 @@ On the course cluster:
 module purge
 module load 2024
 module load QCG-PilotJob
-python3 episodes/files/exercises/qcg-three.py
+srun --partition=thin_course --ntasks=1 --cpus-per-task=2 --time=00:05:00 \
+  python3 episodes/files/exercises/qcg-three.py
 #+end_src
 
 =module load 2024= is the course alias for EESSI 2025.06. Load it before =QCG-PilotJob=. The script submits three tasks that each run =printf=, waits until they finish, and prints:
@@ -174,7 +175,8 @@ Task 0 writes =task-0= into =out_0.txt=. The other two tasks write =out_1.txt= a
 On the course cluster, from the lesson directory, after the two =module load= commands:
 
 #+begin_src bash
-python3 episodes/files/exercises/qcg-three.py
+srun --partition=thin_course --ntasks=1 --cpus-per-task=2 --time=00:05:00 \
+  python3 episodes/files/exercises/qcg-three.py
 #+end_src
 
 If you cannot load the module, do not install a random copy into your home directory during class. Read the script instead and write down the three task names.

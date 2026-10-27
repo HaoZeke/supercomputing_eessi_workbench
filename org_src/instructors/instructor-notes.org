@@ -6,20 +6,95 @@ title: "Instructor notes"
 ---
 #+end_export
 
-Teach this in one day next to the slide decks in https://github.com/sara-nl/introduction-to-supercomputing. Each episode below names the deck to have open. The episode slide deck in =slides/= is the backup if a course deck will not build.
+Teach this as a four-hour introduction alongside the slides in https://github.com/sara-nl/introduction-to-supercomputing. Project the selected course slides for explanations and the learner episode for commands and challenges. Keep this page and the teacher workbook on a separate screen. The episode slide deck in =slides/= is a backup.
+
+* Four-hour running order
+
+Times are elapsed from the start. Add the actual start time to each row. The six episodes take 215 minutes: 100 minutes of explanation and 115 minutes of learner work. A 15-minute break and a 10-minute close bring the total to exactly 240 minutes. Login help belongs inside the first block.
+
+| Elapsed | Minutes | Episode and checkpoint |
+|---------+---------+------------------------|
+| 00:00-00:35 | 35 | Access and HPC: identify the login host and a compute node |
+| 00:35-01:05 | 30 | EESSI: load Python and record the environment |
+| 01:05-01:50 | 45 | Slurm: submit one CPU job and save its ID and output |
+| 01:50-02:05 | 15 | Break |
+| 02:05-02:40 | 35 | Storage: choose a lifetime, pack files and verify a checksum |
+| 02:40-03:15 | 35 | Many tasks: explain an array and one pilot allocation |
+| 03:15-03:50 | 35 | Performance: compare equal work and calculate speedup and efficiency |
+| 03:50-04:00 | 10 | Exit check, questions and recovery margin |
 
 * Timing
 
 | Page | Teaching | Exercises |
 |--------------------------------+----------+-----------|
-| what-is-a-supercomputer.md | 30 | 15 |
-| software-with-eessi.md | 30 | 20 |
-| slurm-jobs.md | 35 | 25 |
-| filesystems-and-data.md | 30 | 20 |
-| many-tasks.md | 30 | 20 |
-| performance-first-steps.md | 25 | 20 |
+| what-is-a-supercomputer.md | 20 | 15 |
+| software-with-eessi.md | 15 | 15 |
+| slurm-jobs.md | 20 | 25 |
+| filesystems-and-data.md | 15 | 20 |
+| many-tasks.md | 15 | 20 |
+| performance-first-steps.md | 15 | 20 |
 
-Teaching is 180 minutes and exercises are 120 minutes. That is a full day with breaks, not six hours of talking. If you are short on time, keep the prediction in each episode and skip the second challenge.
+The explanation and exercise columns describe the core route below. Extra examples and second-machine variants stay available for reading. They are not additional live exercises in this timetable.
+
+* What to teach in each block
+
+** 00:00-00:35: access and the machine
+
+Use fundamentals PDF pages 1-10 and 22-26. Spend the first ten minutes on access, then fifteen on nodes, cores, processes and the login/compute distinction, and ten on prediction and the hostname check. Learners keep their own welcome note private. Use the browser portal shell when SSH is unavailable. If access still fails, pair that learner with someone who has a shell; the instructor handles account repair off the projector.
+
+Checkpoint: each pair can identify the host where they prepare work and the host where a scheduled computation belongs. The offline SSH-config checker is an extension for learners who finish early.
+
+** 00:35-01:05: load the software
+
+Use fundamentals pages 27-30 and 40-45. Explain the shared software stack for fifteen minutes, then give pairs fifteen minutes to purge, select the course stack, find Python and record =python3 --version= and =module list=. Use the welcome note's site instructions; the container route is for a machine without cluster access. Software building and EasyBuild internals are reading material.
+
+Checkpoint: learners explain which Python they will submit and why another shell needs the same environment. Predict the output before opening the solution.
+
+** 01:05-01:50: first job and an array
+
+Use fundamentals pages 31-39 and 46-48. Explain resource requests and queue states for twenty minutes. Allow fifteen minutes for =pi-course.sh= and its output, then ten for reading the four-size array. The serial pi example asks for one CPU. Submit from =episodes/files= so =pi_one.py= is present. Use =squeue -u "$USER"= while waiting; do not submit another copy because the first is pending.
+
+Checkpoint: save a job ID and a line =samples=1000 hits=793 estimate=3.1720=. The value is a deterministic exercise result, not a claim that 1,000 samples estimate pi accurately. A changed sample count changes the expected result. The Snellius variant illustrates a different resource policy and is not the classroom submission.
+
+** 01:50-02:05: break
+
+Leave the return time visible. Pending jobs can finish during the break. Keep the following blocks at their scheduled start; use paired execution and the saved output when a learner needs access repair.
+
+** 02:05-02:40: storage and a verified copy
+
+Use the filesystem deck's lifetime diagram and data-movement pages 1-5. Spend fifteen minutes on home, project, shared scratch and node-local temporary files. Give pairs twenty minutes for the survival prediction and =pack-small-files.sh=. It prints =packed=50= and =checksum=ok=. A real remote copy uses the learner's own destination. No instructor login or learner roster belongs in an example.
+
+Checkpoint: each pair names the durable destination for its result and checks the copy. Parallel copy tools and object-store clients stay as references.
+
+** 02:40-03:15: many small tasks
+
+Use QCG pages 1-13 and 18-29, then workflow-alternatives pages 1-6 as a map. Spend fifteen minutes drawing independent tasks, an array and a pilot. Allow fifteen minutes to predict and run the three-task QCG example, then five to choose between the workflow tools. Run the pilot inside a small CPU allocation. Do not start a database or install workflow software during the class.
+
+Checkpoint: the example ends with =qcg-finished= and =task-0=, and learners explain which single Slurm allocation supplied its CPUs. If the site module is unavailable, inspect the three task descriptions and use the supplied offline checker output; distinguish that reading exercise from a successful cluster run.
+
+** 03:15-03:50: interpret a measurement
+
+Use performance pages 1-7 and 16-18; use the roofline picture only if the group reaches the checkpoint. Explain equal inputs, elapsed time, speedup and efficiency for fifteen minutes. Give pairs twenty minutes to calculate the supplied table and explain why the eight-core efficiency is 0.625. The table is example data, not a benchmark of the classroom cluster. Use a small CPU run for observation, without promising speedup or requiring a profiler.
+
+Checkpoint: learners calculate speedup 5 and efficiency 0.625 from 8.0 seconds on one core and 1.6 seconds on eight cores. They name one controlled variable and one possible bottleneck.
+
+** 03:50-04:00: close and recover
+
+Ask each pair to show its job ID, result, environment and output destination, then explain one resource request. Collect the efficiency answer. The block also absorbs short queue and access delays. If a block runs late, retain the first batch job, storage decision and timing calculation; show the tool alternatives as a diagram. Do not shorten the break or turn reference material into extra prerequisites.
+
+* Workbook and exercise files
+
+The teacher workbook gives extended notes, worked answers and a page atlas for the matching course PDFs. Use its four-hour running order as the teaching route; the detailed MPI, OpenMP, profiler and tool chapters answer questions and support extended classes. The Workbench episodes provide the learner's commands and fold-out solutions.
+
+The browser lesson is not an interactive cluster. Open the course portal in another tab. For Workbench scripts, open a separate editable checkout alongside =~/introduction-to-supercomputing=:
+
+#+begin_src bash
+git clone https://github.com/HaoZeke/supercomputing_eessi_workbench.git "$HOME/supercomputing_eessi_workbench"
+cd "$HOME/supercomputing_eessi_workbench/episodes/files"
+sbatch pi-course.sh
+#+end_src
+
+Clone once. If that directory exists, inspect its revision instead of cloning over it. The batch job needs =pi_one.py= beside =pi-course.sh=. Return to the Workbench checkout root for commands beginning =episodes/files/=. Course deck exercise commands use the separate introduction checkout; do not substitute one directory for the other.
 
 * Deck map
 
