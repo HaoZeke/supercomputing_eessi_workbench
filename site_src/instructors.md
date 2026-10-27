@@ -88,6 +88,18 @@ Expect four separate output files, with indices 0, 1, 2 and 3. At most two array
 - [ ] Hand each learner only their own welcome/setup information. Consumed setup links are not login links; an existing saved password stays usable after its setup URL expires.
 - [ ] Keep an offline copy of the workbook and matching PDFs. Use the printed output for explanation if access fails, and call it example output rather than a live cluster result.
 
+## Optional survey after the core checkpoints
+
+Use this branch only when pairs have the Python result, the correct pi lines and a resource explanation by 03:20. It replaces the 03:20-03:50 array/storage block; it does not extend the class. Stop at 03:50 for the exit check. Choose individual previews when the group needs more practice with the core.
+
+- Five minutes: [File systems](/filesystems/) and the lifetime decision for one result.
+- Five minutes: [Moving data](/data-movement/pack-and-checksum.html), packing and checking a copy.
+- Five minutes: [Many tasks](/many-tasks/), comparing the array with one pilot allocation.
+- Five minutes: [Hybrid jobs](/hybrid-jobs/), drawing MPI ranks and OpenMP threads without starting a full hybrid exercise.
+- Five minutes: [Performance](/performance/), calculating speedup 5 and efficiency 0.625 from 8.0 seconds on one core and 1.6 seconds on eight cores. These are example data, not a benchmark of the room's nodes.
+
+The five previews take 25 minutes and leave five minutes of transition margin. No preview requires a database, a new software installation, profiler setup or a full transfer experiment. The links retain the detailed exercises for independent use.
+
 ## Parts II and III
 
 Part II covers file systems, moving data and many tasks through QCG-PilotJob. Part III covers hybrid MPI/OpenMP and performance. Use the individual lesson instructor notes for their complete episodes. Cut `several-streams`, `other-tools` and `energy` before sacrificing the core exercise for those sessions.
