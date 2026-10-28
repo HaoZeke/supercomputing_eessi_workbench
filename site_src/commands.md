@@ -1,5 +1,7 @@
 # Commands for the course cluster
 
+Present the [quick links slides (PDF)](/downloads/course-links.pdf), or edit the [PowerPoint version](/downloads/course-links.pptx).
+
 Open VS Code from Open OnDemand, choose **1 core**, and use its Terminal menu for these commands. The browser Shell works too. Keep the exercise page open for explanations. Copy one block at a time; replace JOBID with the job number Slurm prints.
 
 The cluster has three 2-CPU nodes and one 60-CPU GPU node: 66 schedulable CPUs in total. The GPU node has two RTX PRO 6000 Blackwell cards. Partitions share these nodes; their totals must not be added together. CPU requests below use at most two cores for the small-node exercises. No email notifications are configured.
