@@ -228,6 +228,11 @@ table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
 th, td { border-bottom: 1px solid #d5dde3; text-align: left; padding: 0.35rem 0.4rem; vertical-align: top; }
 .cut { color: #5c6b76; }
 pre { background: #f4f7f8; padding: 0.8rem; overflow: auto; }
+.copy-button { padding: .4rem .7rem; margin-top: .4rem; background: #0b6e6a; color: white; border: 0; border-radius: .25rem; cursor: pointer; font: inherit; }
+.copy-button:focus-visible { outline: 3px solid #123044; outline-offset: 3px; }
+.copy-status { min-height: 1.5em; }
+nav { display: flex; flex-wrap: wrap; gap: .5rem; }
+
 """
 
 
@@ -251,9 +256,12 @@ def page(title: str, body: str) -> str:
 <nav>
 <a href="/">Home</a>
 <a href="/setup.html">Setup</a>
+<a href="/commands.html">Copy commands</a>
 <a href="/instructors.html">Class plan</a>
 </nav>
 {body}
+<p class="copy-status" role="status" aria-live="polite" id="copy-status"></p>
+<script src="/copy-code.js" defer></script>
 </body>
 </html>
 """
@@ -385,6 +393,7 @@ def render(out: Path) -> None:
     )
     out.mkdir(parents=True, exist_ok=True)
     (out / "index.html").write_text(home, encoding="utf-8")
+    shutil.copyfile(ROOT / "site_assets" / "copy-code.js", out / "copy-code.js")
     (out / "404.html").write_text(page("Page not found", '<p>This file is not available. Return to the <a href="/">course homepage</a>.</p>'), encoding="utf-8")
     (out / "setup.html").write_text(
         page("Setup", markdown_to_html((ROOT / "site_src" / "setup.md").read_text(encoding="utf-8")).replace("<h1>Setup</h1>\n", "", 1)),
@@ -397,6 +406,8 @@ def render(out: Path) -> None:
         ),
         encoding="utf-8",
     )
+    from command_index import render_commands
+    render_commands(out, page, markdown_to_html, lessons)
     shutil.copytree(ROOT / "site_assets" / "downloads", out / "downloads", dirs_exist_ok=True)
     shutil.copyfile(ROOT / "site_assets" / "assets" / "logo.svg", out / "logo.svg")
 
