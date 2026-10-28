@@ -44,6 +44,55 @@ sacct -j JOBID --format=JobID,JobName,State,ExitCode,Elapsed,AllocCPUS
 
 [Open python.sh](https://github.com/HaoZeke/introduction-to-supercomputing/blob/course/maastricht-20261028/course-module-fundamentals-of-hpc/hands-on/python.sh).
 
+## Slurm tips: readable output and useful checks
+
+Create the output directory before submitting: Slurm creates the files, but not their parent directory. From the fundamentals hands-on directory:
+
+```bash
+mkdir -p logs
+sbatch --partition=rome --cpus-per-task=1 \
+  --job-name=python-check \
+  --output='logs/%x-%j.out' \
+  --error='logs/%x-%j.err' \
+  python.sh
+```
+
+`%x` becomes the job name and `%j` the job number: for job 12345 the output is `logs/python-check-12345.out`. Using the job ID keeps separate submissions in separate files. Replace JOBID in these inspection commands:
+
+```bash
+tail -n 30 logs/python-check-JOBID.out
+cat logs/python-check-JOBID.err
+sacct -j JOBID --format=JobID,JobName,State,ExitCode,Elapsed,AllocCPUS
+seff JOBID
+```
+
+For live output, use `tail -f logs/python-check-JOBID.out`; Ctrl-C stops watching the file while the job continues. To cancel a job you submitted:
+
+```bash
+scancel JOBID
+```
+
+In a batch script, the same output settings are directives. Keep them before the script's executable commands. `#SBATCH` does not expand shell variables such as `$HOME`; use Slurm's filename substitutions or pass an expanded path on the `sbatch` command line.
+
+```bash
+#SBATCH --job-name=python-check
+#SBATCH --output=logs/%x-%j.out
+#SBATCH --error=logs/%x-%j.err
+```
+
+For an array, use `%A` for the array job ID and `%a` for the task index so every task has its own log. From QCG example 2, after preparing its inputs:
+
+```bash
+mkdir -p logs
+sbatch --partition=rome --array=0-99%10 \
+  --job-name=average-array \
+  --output='logs/%x-%A_%a.out' \
+  --error='logs/%x-%A_%a.err' \
+  array_job.sh
+```
+
+The `%10` in the array request limits it to ten simultaneous tasks. A job leaving `squeue` does not prove success: check `State` and `ExitCode` with `sacct` and check the numerical result in the output. Leave email directives out on this cluster.
+
 ## 3. Compile and run the OpenMP pi example
 
 The small-node request below overrides the script's 32-core default. The script runs its thread counts only up to the allocation size.
