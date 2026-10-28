@@ -1,50 +1,59 @@
-# Setup
+# Start with Open OnDemand
 
-You need a terminal and one of the three machines below. You do not need all three. The lesson pages link back here.
+Use the course cluster in your browser. Your trainer supplies the portal address, username and private account-setup link. Each person uses their own account. No Snellius CUA account or SSH client is required.
 
-## Snellius
+## Set up and sign in
 
-Snellius is the Dutch national supercomputer. SURF sends the account mail after your project has a login. The public description of the machine is at <https://www.surf.nl/en/services/compute/snellius-the-national-supercomputer>.
-
-```bash
-ssh YOUR_LOGIN@snellius.surf.nl
-```
-
-Sign in at <https://portal.cua.surf.nl/> before the first SSH login. If the network you are on is not trusted, the welcome mail names a door node. Use that host instead of `snellius.surf.nl`.
-
-A browser session through Open OnDemand (<https://ondemand.snellius.surf.nl/>) is still a login node. Do not start the long run there.
-
-## The course cluster
-
-The course cluster is a SURF Research Cloud workspace. CPU jobs request `--partition=rome`. The login address is the one in the welcome note. There is one login node. Your trainer sends a setup link. That link sets your password. There is no CUA account.
+1. Open your own setup link privately, follow its password instructions and save your password. A consumed setup link is not the login page.
+2. Open the course portal from your welcome note and sign in. Complete any authentication prompt shown for your account.
+3. Open **Clusters**, then the course shell. Keep this terminal in one tab and this lesson in another.
+4. Run the commands below. Check that the username is yours and identify the login node.
 
 ```bash
-ssh YOUR_LOGIN@MANAGER
+whoami
+hostname
+pwd
+mkdir -p "$HOME/hpc-course"
+cd "$HOME/hpc-course"
+sinfo
 ```
 
-`module load 2025` loads EESSI 2025.06. `module load 2024` selects that same stack. There is no project budget on this cluster. `sacct` still reports core-seconds in `CPUTimeRAW`.
+Ask the trainer privately about access problems. Never share passwords or account-setup links. An existing password remains usable after its setup link expires.
 
-mpiFileUtils is installed on this workspace. It is not an EESSI module. EESSI 2023.06 and 2025.06 do not provide it.
+## Files, terminal and applications
 
-## The EESSI client, when you have no cluster
+**Files**, then **Home Directory**, lets you upload scripts, read output and download results. The **Clusters** terminal provides the same account and files. It starts on the shared login node: use Slurm to run computations on compute nodes.
 
-The software lesson also runs in the EESSI client container. Access is documented at <https://www.eessi.io/isc26-tutorial/getting-access/> and day-to-day use at <https://www.eessi.io/isc26-tutorial/usage/>.
+**Interactive Apps** offers Jupyter, VS Code and the desktop. Choose a small CPU request and a short duration, launch, wait for the session to run, then connect. Stop it from **My Interactive Sessions** when finished. A pending session is waiting for resources; do not submit duplicates. These applications are optional for the first batch job.
 
-You need Apptainer 1.0 or newer, with `--fusemount` support. This shell mounts the same repository the cluster uses. It does not give you Slurm.
+## Download the audited exercises
+
+The upstream changes are under review. Use the trainer's fork and classroom branch to match the slides:
 
 ```bash
-mkdir -p "$HOME/eessi-work/var-lib-cvmfs" "$HOME/eessi-work/var-run-cvmfs" "$HOME/eessi-work/home"
-export APPTAINER_BIND="$HOME/eessi-work/var-run-cvmfs:/var/run/cvmfs,$HOME/eessi-work/var-lib-cvmfs:/var/lib/cvmfs"
-export APPTAINER_HOME="$HOME/eessi-work/home:/home/$USER"
-apptainer shell --fusemount "container:cvmfs2 software.eessi.io /cvmfs/software.eessi.io" docker://ghcr.io/eessi/client:rocky8
+git clone --branch course/maastricht-20261028 --single-branch \
+  https://github.com/HaoZeke/introduction-to-supercomputing.git \
+  "$HOME/introduction-to-supercomputing-class"
+cd "$HOME/introduction-to-supercomputing-class/course-module-fundamentals-of-hpc/hands-on"
 ```
 
-Inside the container:
+Keep any existing exercise directory; use the new directory shown above. You can also [download the classroom source archive](https://github.com/HaoZeke/introduction-to-supercomputing/archive/refs/heads/course/maastricht-20261028.zip) and unpack it through Files.
+
+The website's additional exercises live in the [Workbench repository](https://github.com/HaoZeke/supercomputing_eessi_workbench). Their paths begin with lessons; the slide checkout uses course-module directories. Follow the path printed in your exercise.
+
+## First batch job
 
 ```bash
-source /cvmfs/software.eessi.io/versions/2025.06/init/lmod/bash
-module load Python/3.13.5-GCCcore-14.3.0
-python3 --version
+sbatch --partition=rome --cpus-per-task=1 python.sh
+squeue -u "$USER"
 ```
 
-`python3 --version` prints `Python 3.13.5`. The first launch downloads the image and can take a few minutes. The container has no `sbatch` and no `squeue`.
+Save the job number printed by sbatch. Once the job finishes, read its slurm-JOBID.out file, replacing JOBID with that number. Expect a compute hostname and sum: 499999500000. The output is also accessible through Files.
+
+## Software and storage
+
+EESSI supplies the shared software stack. The course CernVM-FS repository supplies site tools and teaching material. Follow each exercise's explicit module instructions; year aliases are compatibility names, not software versions. CPU jobs use the rome partition. Scratch is temporary; download the results you need to retain.
+
+## Other environments
+
+[Snellius access documentation](https://servicedesk.surf.nl/wiki/display/WIKI/Access+to+Snellius) and the [EESSI client container](https://www.eessi.io/isc26-tutorial/getting-access/) support independent study. The container has no Slurm scheduler. Neither is required for this classroom path.

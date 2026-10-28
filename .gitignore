@@ -46,3 +46,7 @@ __pycache__/
 # per-lesson sandpaper builds
 lessons/*/site/*
 !lessons/*/site/README.md
+
+.wrangler/
+site_assets/downloads/*teacher-workbook*
+site_assets/downloads/workbook-provenance.json

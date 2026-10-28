@@ -251,7 +251,7 @@ def page(title: str, body: str) -> str:
 <nav>
 <a href="/">Home</a>
 <a href="/setup.html">Setup</a>
-<a href="/instructors.html">Instructors</a>
+<a href="/instructors.html">Class plan</a>
 </nav>
 {body}
 </body>
@@ -301,11 +301,10 @@ def part_one_table(data: dict) -> str:
         '<h2 id="part-one">Part I: four-hour Introduction to HPC</h2>'
         '<p>Elapsed times include the break. Start with this route, rather than '
         'the complete episode estimates below. The <a href="/instructors.html">'
-        'instructor guide</a> names slide pages, commands, answers and stopping points.</p>'
+        'class plan</a> gives the running order and exercise checkpoints.</p>'
         '<table><thead><tr><th>Elapsed</th><th>Minutes</th><th>Block</th></tr></thead>'
         '<tbody>' + "".join(rows) + '</tbody></table>'
-        '<p><a href="/downloads/intro-teacher-workbook.pdf">Teacher workbook (PDF)</a>'
-        ' | <a href="/downloads/introduction-slides.zip">Matching slide pack</a></p>'
+        '<p><a href="/downloads/introduction-slides.zip">Download the course slides</a></p>'
     )
 
 
@@ -363,7 +362,7 @@ def render(out: Path) -> None:
         data["title"],
         f"""
 <p>Seven lessons, one site. Each lesson is a Carpentries Workbench lesson at <code>https://supersurf.rgoswami.me/&lt;slug&gt;/</code>. The workshop is three sessions of four hours. A lesson keeps every episode. The schedule below is what a session teaches, and the rows marked "cut first" are the ones to drop when the clock runs out.</p>
-<p>Commands that differ by machine are in tabs: Snellius, the course cluster, and a generic Magic Castle cluster with EESSI. The course cluster is a SURF Research Cloud workspace, and its tab requests <code>--partition=rome</code>. See the <a href="/setup.html">setup page</a>.</p>
+<p>Start in the browser with Open OnDemand. Use its terminal, Files and interactive applications with your course account. Lessons show one course-cluster path using <code>--partition=rome</code>. Follow the <a href="/setup.html">browser setup guide</a>.</p>
 {part_one}
 <h2>All three sessions</h2>
 <table>

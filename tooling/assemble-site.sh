@@ -3,6 +3,7 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
+export SUPERSURF_SITES="${SUPERSURF_SITES:-course}"
 export RSCRIPT="${RSCRIPT:-Rscript}"
 OUT="$ROOT/site/docs"
 rm -rf "$OUT"
