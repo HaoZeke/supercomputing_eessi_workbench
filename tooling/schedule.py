@@ -399,6 +399,8 @@ def render(out: Path) -> None:
         page("Setup", markdown_to_html((ROOT / "site_src" / "setup.md").read_text(encoding="utf-8")).replace("<h1>Setup</h1>\n", "", 1)),
         encoding="utf-8",
     )
+    (out / "fundamentals").mkdir(exist_ok=True)
+    (out / "fundamentals" / "setup.html").write_text(redirect_page("/setup.html", "Course setup"), encoding="utf-8")
     (out / "instructors.html").write_text(
         page(
             "Instructors",
