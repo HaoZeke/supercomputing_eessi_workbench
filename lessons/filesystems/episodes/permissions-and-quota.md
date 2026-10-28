@@ -39,7 +39,7 @@ A new file's starting string depends on the account. On Snellius the hands-on fi
 
 Home on Snellius is 200 GiB, with a limit a little above the quota, and a separate cap on inodes. Scratch is 8 TiB across scratch-local and scratch-shared. A full home stops the next copy. It also stops you writing the script that would move the data.
 
-The command is in the tab. On Snellius it is `myquota`. On the course cluster there is no `myquota`. `df -h` prints size, used, and available for each mount you name. `du -sh ~` prints one total for home, not a line per file. `-s` is the summary. `-h` prints units you can read.
+The command is in the tab. On Snellius it is `myquota`. On the course cluster, `myquota` identifies the home filesystem and reports shared BeeGFS capacity rather than a per-user quota. `df -h` prints size, used, and available for each mount you name. `du -sh ~` prints one total for home, not a line per file. `-s` is the summary. `-h` prints units you can read.
 
 ::: sites quota
 :::
@@ -92,7 +92,7 @@ On Snellius, what is the home quota in GiB, and what else does the line count? O
 
 On Snellius, `myquota` prints a home line with `quota=200.00` in GiB. The limit in the documented example is `210.00`. `usage` is the fraction already used. The same line counts inodes: the documented quota is `1000000`. A scratch line is in TiB, with quota `8.00`, counted across scratch-local and scratch-shared.
 
-On the course cluster, `myquota` is not installed. `df -h` prints one line per mount you named, with the size, the amount used, and the amount free. `du -sh ~` prints a single size for your home directory.
+On the course cluster, `myquota` reports the shared BeeGFS home capacity rather than a per-user quota. `df -h` prints one line per mount you named, with the size, the amount used, and the amount free. `du -sh ~` prints a single size for your home directory.
 
 A home `usage` near the quota is the signal to move large files before the next job, not after the write has failed.
 :::

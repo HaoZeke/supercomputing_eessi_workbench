@@ -65,7 +65,7 @@ scur1448@home4|GiB:quota=200.00,limit=210.00,usage=0.0000%|Inodes:quota=1000000,
 
 `quota` is the amount you are given. `limit` is a little above that. `usage` is how full you are. Home is 200 GiB and 1,000,000 inodes. Scratch is 8 TiB across scratch-local and scratch-shared. Inodes are the metadata count from the previous episode. A small `usage` on bytes can still sit next to a full inode quota if the directory is many tiny files.
 
-On the course cluster there is no `myquota`. `df -h` prints size, used, and free for a mount. `du -sh ~` prints one size for your home.
+On the course cluster, `myquota` identifies the home filesystem and reports shared BeeGFS capacity rather than a per-user quota. `df -h` prints size, used, and free for a mount. `du -sh ~` prints one size for your home.
 
 ::: callout
 ## Type along
