@@ -25,7 +25,7 @@ For this class, open the course portal from your welcome note. Sign in, select
 **Clusters**, then the course shell. You have a terminal on the login node;
 commands and Slurm jobs work the same as in an SSH terminal. **Files** opens
 your home directory. No local SSH installation or key generation is needed
-for the browser exercises. Follow the [browser setup guide](/setup.html) and
+for the browser exercises. Follow the [browser setup guide](https://supersurf.rgoswami.me/setup) and
 return here once you can run the commands below.
 
 ```bash
