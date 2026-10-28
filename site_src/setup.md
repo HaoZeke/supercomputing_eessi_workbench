@@ -18,6 +18,8 @@ cd "$HOME/hpc-course"
 sinfo
 ```
 
+Setup and sign-in use the portal's standard HTTPS port 443. For a course setup link containing `:8443`, remove only `:8443` and keep its token unchanged.
+
 Ask the trainer privately about access problems. Never share passwords or account-setup links. An existing password remains usable after its setup link expires.
 
 ## Files, terminal and applications
@@ -63,6 +65,10 @@ Save the job number printed by sbatch. Once the job finishes, read its slurm-JOB
 ## Software and storage
 
 EESSI supplies the shared software stack. The course CernVM-FS repository supplies site tools and teaching material. Follow each exercise's explicit module instructions; year aliases are compatibility names, not software versions. CPU jobs use the rome partition. Scratch is temporary; download the results you need to retain.
+
+Your home is shared across the cluster. `~/scratch` links to `/scratch/$USER` for large or temporary files. `/project/learners` holds shared course material. Slurm sets `$TMPDIR` inside a job to node-local space that is removed when the job ends. `myquota` identifies the home filesystem; its BeeGFS capacity display is shared space, not a personal quota.
+
+If sign-in requests an unfamiliar second factor, ask the trainer for account recovery. Keep any factor you enrolled and still use; learners do not need to remove their own working factors. Trainers keep multifactor sign-in.
 
 ## Other environments
 
