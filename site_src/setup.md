@@ -26,7 +26,17 @@ Ask the trainer privately about access problems. Never share passwords or accoun
 
 **Interactive Apps** offers Jupyter, VS Code and the desktop. Choose a small CPU request and a short duration, launch, wait for the session to run, then connect. Stop it from **My Interactive Sessions** when finished. A pending session is waiting for resources; do not submit duplicates. These applications are optional for the first batch job.
 
-## Download the audited exercises
+## Use your prepared exercise directory
+
+The Introduction attendees already have the audited runnable exercises and QCG input archive in their own home directories. Start here in the browser terminal:
+
+```bash
+cd "$HOME/introduction-to-supercomputing/course-module-fundamentals-of-hpc/hands-on"
+```
+
+Keep your work in this directory. Downloading or cloning another copy is optional.
+
+## Optional: download a separate classroom copy
 
 The upstream changes are under review. Use the trainer's fork and classroom branch to match the slides:
 

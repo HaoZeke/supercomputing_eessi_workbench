@@ -37,13 +37,14 @@ Documentation: <https://qcg-pilotjob.readthedocs.io/en/develop/>.
 
 ## The Slurm script
 
-Load QCG-PilotJob from the 2024 environment. The slide says the 2025 stack has no build of it, and it tells you to load the modules in the batch script. The same slide says Slurm exports the submission environment by default. The hands-on README says that on Snellius the login environment is not transferred to the compute node. The command in both places is the same: the `module load` lines go in the batch script.
+Load the real QCG-PilotJob installation from the course CernVM-FS repository. Initialize EESSI 2025.06, add the site module directory and load the exact module below inside the batch script. The year aliases are compatibility names; they do not install QCG-PilotJob.
 
 The deck's smallest script is one node, 16 cores, partition `rome`, ten minutes, then:
 
 ```bash
-module load 2024
-module load QCG-PilotJob/0.14.1-gfbf-2024a
+source /cvmfs/software.eessi.io/versions/2025.06/init/lmod/bash
+module use /cvmfs/course.surf-src.cvmfs/eessi/versions/2025.06/software/linux/x86_64/amd/zen2/modules/all
+module load QCG-PilotJob/0.14.1-GCCcore-14.2.0
 python test.py
 ```
 
@@ -57,8 +58,9 @@ Example 3's `episodes/files/hands-on/example_03/qcg_job.sh` is the script you su
 #SBATCH --partition=rome
 
 # QCG-PilotJob is installed in the 2024 stack only (toolchain gfbf-2024a)
-module load 2024
-module load QCG-PilotJob/0.14.1-gfbf-2024a
+source /cvmfs/software.eessi.io/versions/2025.06/init/lmod/bash
+module use /cvmfs/course.surf-src.cvmfs/eessi/versions/2025.06/software/linux/x86_64/amd/zen2/modules/all
+module load QCG-PilotJob/0.14.1-GCCcore-14.2.0
 
 python3 qcg_job.py
 ```
@@ -272,7 +274,7 @@ The hostnames are the contents of `output/job.*.out`, not those three lines.
 ::: keypoints
 
 - QCG-PilotJob is a manager inside one Slurm allocation. The Slurm script loads it and runs the Python script.
-- The published example 3 script loads `2024` and `QCG-PilotJob/0.14.1-gfbf-2024a`, and asks for 2 nodes at 128 tasks per node on `rome`.
+- The published example 3 script loads `2024` and `QCG-PilotJob/0.14.1-GCCcore-14.2.0`, and asks for 2 nodes at 128 tasks per node on `rome`.
 - `qcg-three.py` prints `qcg-finished` and then `task-0`.
 - Example 3 runs 512 `hostname` tasks, `model='default'`, one core each. That is 256 tasks on each of the two nodes.
 - Job states are in `nl-agent-{hostname}.log`.

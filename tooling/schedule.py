@@ -385,6 +385,7 @@ def render(out: Path) -> None:
     )
     out.mkdir(parents=True, exist_ok=True)
     (out / "index.html").write_text(home, encoding="utf-8")
+    (out / "404.html").write_text(page("Page not found", '<p>This file is not available. Return to the <a href="/">course homepage</a>.</p>'), encoding="utf-8")
     (out / "setup.html").write_text(
         page("Setup", markdown_to_html((ROOT / "site_src" / "setup.md").read_text(encoding="utf-8")).replace("<h1>Setup</h1>\n", "", 1)),
         encoding="utf-8",

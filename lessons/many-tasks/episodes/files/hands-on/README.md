@@ -32,7 +32,8 @@ modules per run.
    [documentation](https://qcg-pilotjob.readthedocs.io/en/develop/logs.html).
 
 > [!NOTE]
-> EESSI 2025.06 does not include QCG-PilotJob, so the SRC course cluster carries a site installation on top of it. The job scripts run unchanged: the cluster answers their `module load 2024` and `module load QCG-PilotJob/0.14.1-gfbf-2024a` with that installation, and `module load 2025` followed by `module load QCG-PilotJob/0.14.1-GCCcore-14.2.0` is the same software under its own name. Lower `--ntasks-per-node` to the core count of a workspace (`sinfo -o '%n %c'`), or override it on the command line, for example `sbatch --nodes=3 --ntasks-per-node=2 qcg_job.sh`. SRC does not bill in system billing units: `sacct` reports `CPUTimeRAW` in core-seconds, so count core-hours instead.
+> EESSI 2025.06 does not include QCG-PilotJob, so the SRC course cluster carries a site installation on top of it. The job scripts run unchanged: the cluster answers their `source /cvmfs/software.eessi.io/versions/2025.06/init/lmod/bash
+module use /cvmfs/course.surf-src.cvmfs/eessi/versions/2025.06/software/linux/x86_64/amd/zen2/modules/all` and `module load QCG-PilotJob/0.14.1-GCCcore-14.2.0` with that installation, and `module load 2025` followed by `module load QCG-PilotJob/0.14.1-GCCcore-14.2.0` is the same software under its own name. Lower `--ntasks-per-node` to the core count of a workspace (`sinfo -o '%n %c'`), or override it on the command line, for example `sbatch --nodes=3 --ntasks-per-node=2 qcg_job.sh`. SRC does not bill in system billing units: `sacct` reports `CPUTimeRAW` in core-seconds, so count core-hours instead.
 > On Snellius, examples 4 and 5 ask for 16 cores (`--ntasks=16`), the 1/8-node minimum allocation on a 128-core rome node. On 2-core SRC workspaces, scale them down so a run takes minutes, not an hour:
 > ```
 > sbatch --array=0-99%10 array_job.sh                                # example 2: 100 of the 1000 files

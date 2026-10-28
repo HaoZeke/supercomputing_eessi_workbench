@@ -29,7 +29,8 @@ Workflow slides and `alternatives/`: branch `feat/workflow-alternatives`, commit
 
 Published scripts request the `rome` partition and, for example 3, 128 tasks per node. Leave those lines. Overrides go on the `sbatch` command. The hands-on README's small-node forms are `--array=0-99%10`, `QCG_MAX_INPUTS=100` with `--ntasks=2`, and `TIMES_FILE=times_short.txt` with `--ntasks=2`. Example 3's README example is `sbatch --nodes=3 --ntasks-per-node=2 qcg_job.sh`. Check `sinfo` before you quote a core count. The course cluster is a SURF Research Cloud workspace. The course tab requests `--partition=rome`. The cpu-minimum tab is the two-core override when `sinfo` shows small nodes.
 
-QCG in the published scripts is `module load 2024` and `module load QCG-PilotJob/0.14.1-gfbf-2024a`. The 2025 stack has no build of it. EESSI 2025.06 does not include it. The qcg-modules tab is the load line for the room. `episodes/files/exercises/qcg-three.py` prints `qcg-finished` and then `task-0`. That prediction is the two `print` calls plus `out_0.txt`. It does not depend on a cluster hostname.
+QCG in the published scripts is `source /cvmfs/software.eessi.io/versions/2025.06/init/lmod/bash
+module use /cvmfs/course.surf-src.cvmfs/eessi/versions/2025.06/software/linux/x86_64/amd/zen2/modules/all` and `module load QCG-PilotJob/0.14.1-GCCcore-14.2.0`. The 2025 stack has no build of it. EESSI 2025.06 does not include it. The qcg-modules tab is the load line for the room. `episodes/files/exercises/qcg-three.py` prints `qcg-finished` and then `task-0`. That prediction is the two `print` calls plus `out_0.txt`. It does not depend on a cluster hostname.
 
 `qcg_job.sh` in example 4 calls `qcg_job_v1.py`. The other versions are comments. One active line at a time.
 
