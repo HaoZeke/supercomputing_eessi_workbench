@@ -19,6 +19,28 @@ exercises: 0
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+## Classroom path: Open OnDemand
+
+For this class, open the course portal from your welcome note. Sign in, select
+**Clusters**, then the course shell. You have a terminal on the login node;
+commands and Slurm jobs work the same as in an SSH terminal. **Files** opens
+your home directory. No local SSH installation or key generation is needed
+for the browser exercises. Follow the [browser setup guide](/setup.html) and
+return here once you can run the commands below.
+
+```bash
+whoami
+hostname
+pwd
+sinfo
+```
+
+Keep the setup link and password private. Stop optional Jupyter, VS Code or
+desktop sessions from **My Interactive Sessions** when finished. Use Slurm
+for computations; the browser terminal is on the shared login node.
+
+The sections below explain direct SSH access for independent study.
+
 An HPC cluster is a collection of computers that users access remotely. Your laptop
 is not part of the cluster; it is the computer from which you connect. To begin
 working on the HPC cluster, you must first establish a secure connection to the
