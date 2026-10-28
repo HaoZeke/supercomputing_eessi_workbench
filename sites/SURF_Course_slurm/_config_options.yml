@@ -27,7 +27,7 @@ remote:
     project: "/project"
     archive: ""
   modules:
-    python: "Python/3.13.5-GCCcore-14.3.0"
+    python: "Python/3.13.1-GCCcore-14.2.0"
     stack: "2025"
 sched:
   name: "Slurm"

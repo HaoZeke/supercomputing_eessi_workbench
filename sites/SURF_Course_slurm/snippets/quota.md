@@ -1,6 +1,7 @@
-There is no `myquota` here.
+`myquota` reports the filesystem containing your home. On BeeGFS its capacity display is shared space, not a personal quota.
 
 ```bash
-{{remote.prompt}} df -h /home /project /scratch
-{{remote.prompt}} du -sh ~
+myquota
+df -h "$HOME" "/scratch/$USER"
+du -sh "$HOME"
 ```
